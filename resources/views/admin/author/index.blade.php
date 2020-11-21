@@ -9,8 +9,6 @@
         
         <div class="box-body">
 
-            @include('admin.templates.partials.alerts')
-
             <table id="dataTable" class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -30,17 +28,23 @@
     </form>
 @endsection
 
+
+
 @push('scripts')
+    <script src="{{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bs-notify.min.js') }}"></script>
+    @include('admin.templates.partials.alerts')
     <script>
-        $(function (){
+        $(function () {
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '{{ route('admin.author.data') }}',
                 columns: [
-                    {data: 'DT_RowIndex', orderable: false, searchable: false},
-                    {data: 'name'},
-                    {data: 'action'}
+                    { data: 'DT_RowIndex', orderable: false, searchable : false},
+                    { data: 'name'},
+                    { data: 'action'}
                 ]
             });
         });
