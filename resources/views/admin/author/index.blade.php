@@ -4,6 +4,7 @@
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Data Penulis</h3>
+            <a href="{{ route('admin.author.create') }}" class="btn btn-primary">Tambah Penulis</a>
         </div>
         
         <div class="box-body">
