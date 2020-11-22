@@ -3,7 +3,7 @@
 @section('content')
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Data Penulis</h3>
+        <h3 class="box-title">Data Buku</h3>
         <a href="{{ route('admin.book.create') }}" class="btn btn-primary">Tambah Buku</a>
     </div>
 

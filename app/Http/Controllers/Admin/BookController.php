@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Author;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class BookController extends Controller
             'title' => 'Data Buku',
         ]);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +27,10 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.book.create', [
+            'title' => 'Tambah Buku',
+            'authors' => Author::orderBy('name', 'ASC')->get(),
+        ]);
     }
 
     /**
