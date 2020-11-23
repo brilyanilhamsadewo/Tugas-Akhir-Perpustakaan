@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Author;
+use App\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,29 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required|min:20',
+            'author_id' => 'required',
+            'cover' => 'file|image',
+            'qty' => 'required|numeric',
+        ]);
+
+        $cover = null;
+
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover')->store('assets/covers');
+        }
+
+        Book::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'author_id' => $request->author_id,
+            'cover' => $cover,
+            'qty' => $request->qty,
+        ]);
+
+        return redirect()->route('admin.book.index')->withSuccess('Data Buku Berhasil Ditambahkan');
     }
 
     /**
