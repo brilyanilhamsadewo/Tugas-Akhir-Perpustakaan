@@ -6,6 +6,7 @@ use App\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\BorrowHistory;
+use App\User;
 
 use function Ramsey\Uuid\v1;
 
@@ -29,11 +30,10 @@ class BookController extends Controller
 
     public function borrow(Book $book)
     {
-        BorrowHistory::create([
-            'user_id' => auth()->id(),
-            'book_id' => $book->id,
-        ]);
+        $user = auth()->user();
 
-        return 'OK';
+        $user->borrow()->attach($book);
+
+        return redirect()->back();
     }
 }
