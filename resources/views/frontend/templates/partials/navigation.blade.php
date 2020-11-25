@@ -9,6 +9,9 @@
               <li><a href="{{ route('register') }}">Register</a></li>
               @else
               <ul class="dropdown-content" id="dropdown1">
+                <li>
+                  <a href="{{ route('home') }}">Home</a>
+                </li>
                 <li><a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
