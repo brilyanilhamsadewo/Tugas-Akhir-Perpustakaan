@@ -18,3 +18,4 @@ Route::resource('author', 'AuthorController');
 Route::resource('book', 'BookController');
 
 Route::get('/borrow','BorrowController@index')->name('borrow.index');
+Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name('borrow.return');
