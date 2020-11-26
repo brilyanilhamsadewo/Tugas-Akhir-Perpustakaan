@@ -18,12 +18,14 @@ class BookController extends Controller
 
         return view('frontend.book.index', [
             'books' => $books,
+            'title' => 'Beranda Perpustakaan',
         ]);
     }
 
     public function show(Book $book)
     {
         return view('frontend.book.show', [
+            'title' => $book->title,
             'book' => $book,
         ]);
     }
