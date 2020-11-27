@@ -15,6 +15,7 @@
                     <th>Id</th>
                     <th>Judul</th>
                     <th>Deskripsi</th>
+                    <th>Jumlah Buku</th>
                     <th>Penulis</th>
                     <th>Sampul</th>
                     <th>Aksi</th>
@@ -52,6 +53,7 @@
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'title'},
                     { data: 'description'},
+                    { data: 'qty'},
                     { data: 'author'},
                     { data: 'cover'},
                     { data: 'action'},
