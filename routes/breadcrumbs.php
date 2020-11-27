@@ -55,3 +55,8 @@ Breadcrumbs::for('admin.borrow.index', function ($trail) {
 Breadcrumbs::for('admin.report.top-book', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
 });
+
+// Report Index
+Breadcrumbs::for('admin.report.top-user', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+});
