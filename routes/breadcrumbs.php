@@ -25,6 +25,26 @@ Breadcrumbs::for('admin.author.edit', function ($trail, $author) {
     $trail->push('Edit Penulis', route('admin.author.edit', $author));
 });
 
+// Category Index
+Breadcrumbs::for('admin.category.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Kategori', route('admin.category.index'));
+});
+
+// Category Create
+Breadcrumbs::for('admin.category.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Kategori', route('admin.category.index'));
+    $trail->push('Tambah Kategori', route('admin.category.create'));
+});
+
+// Category Edit
+Breadcrumbs::for('admin.category.edit', function ($trail, $category) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Kategori', route('admin.category.index'));
+    $trail->push('Edit Kategori', route('admin.category.edit', $category));
+});
+
 // Book Index
 Breadcrumbs::for('admin.book.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));

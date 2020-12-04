@@ -19,6 +19,14 @@
                     @enderror
                 </div>
 
+                <div class="form-group @error('issn') has-error @enderror">
+                    <label for="">ISSN</label>
+                    <input type="text" name="issn" class="form-control" placeholder="Masukkan ISSN buku" value="{{ $book->issn ?? old('issn') }}">
+                    @error('issn')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="form-group @error('title') has-error @enderror">
                     <label for="">Deskripsi</label>
                     <textarea name="description" id="" rows="3" class="form-control" placeholder="Masukkan deskripsi buku">{{ $book->description ?? old('description') }}</textarea>

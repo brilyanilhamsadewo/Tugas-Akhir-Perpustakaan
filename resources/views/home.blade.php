@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Buku yang sedang dipinjam</h1>
+      <h2 style="text-align: center">Selamat Datang, {{ auth()->user()->name }}</h2>
 
         @foreach ($books as $book)
         <div class="card horizontal hoverable">

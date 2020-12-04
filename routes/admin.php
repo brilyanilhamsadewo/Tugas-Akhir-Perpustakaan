@@ -11,6 +11,7 @@ Route::get('/', 'HomeController@index')->name('dashboard');
 // Route::delete('/author/{author}', 'AuthorController@destroy')->name('author.destroy');
 
 Route::get('/author/data', 'DataController@authors')->name('author.data');
+Route::get('/category/data', 'DataController@categories')->name('categories.data');
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
 
@@ -22,3 +23,5 @@ Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name
 
 Route::get('/report/top-user','ReportController@topUser')->name('report.top-user');
 Route::get('/report/top-book','ReportController@topBook')->name('report.top-book');
+
+Route::resource('category', 'CategoryController');

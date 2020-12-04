@@ -14,6 +14,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Judul</th>
+                    <th>ISSN</th>
                     <th>Deskripsi</th>
                     <th>Jumlah Buku</th>
                     <th>Penulis</th>
@@ -52,6 +53,7 @@
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'title'},
+                    { data: 'issn'},
                     { data: 'description'},
                     { data: 'qty'},
                     { data: 'author'},

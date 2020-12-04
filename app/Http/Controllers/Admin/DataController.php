@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Author;
 use App\Book;
 use App\BorrowHistory;
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,17 @@ class DataController extends Controller
 
         return datatables()->of($authors)
             ->addColumn('action', 'admin.author.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function categories()
+    {
+        $categories = Category::orderBy('categories_name', 'ASC');
+
+        return datatables()->of($categories)
+            ->addColumn('action', 'admin.category.action')
             ->addIndexColumn()
             ->rawColumns(['action'])
             ->toJson();

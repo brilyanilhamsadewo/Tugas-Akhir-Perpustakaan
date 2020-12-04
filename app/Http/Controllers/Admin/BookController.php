@@ -45,6 +45,7 @@ class BookController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'issn' => 'required|numeric|min:10',
             'description' => 'required|min:20',
             'author_id' => 'required',
             'cover' => 'file|image',
@@ -59,6 +60,7 @@ class BookController extends Controller
 
         Book::create([
             'title' => $request->title,
+            'issn' => $request->issn,
             'description' => $request->description,
             'author_id' => $request->author_id,
             'cover' => $cover,
@@ -105,6 +107,7 @@ class BookController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'issn' => 'required|numeric|min:10',
             'description' => 'required|min:20',
             'author_id' => 'required',
             'cover' => 'file|image',
@@ -120,6 +123,7 @@ class BookController extends Controller
 
         $book->update([
             'title' => $request->title,
+            'issn' => $request->issn,
             'description' => $request->description,
             'author_id' => $request->author_id,
             'cover' => $cover,
