@@ -19,9 +19,13 @@ Route::resource('author', 'AuthorController');
 Route::resource('book', 'BookController');
 
 Route::get('/borrow','BorrowController@index')->name('borrow.index');
+Route::get('/borrow/create','BorrowController@create')->name('borrow.create');
+Route::post('/borrow/store','BorrowController@store')->name('borrow.store');
 Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name('borrow.return');
 
 Route::get('/report/top-user','ReportController@topUser')->name('report.top-user');
 Route::get('/report/top-book','ReportController@topBook')->name('report.top-book');
 
 Route::resource('category', 'CategoryController');
+
+Route::get('/borrowing','BorrowingController@index')->name('borrowing.index');

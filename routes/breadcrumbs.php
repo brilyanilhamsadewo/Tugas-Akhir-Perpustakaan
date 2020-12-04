@@ -71,6 +71,13 @@ Breadcrumbs::for('admin.borrow.index', function ($trail) {
     $trail->push('Peminjaman', route('admin.borrow.index'));
 });
 
+// Borrow Create
+Breadcrumbs::for('admin.borrow.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Peminjaman', route('admin.borrow.index'));
+    $trail->push('Tambah Peminjaman', route('admin.borrow.create'));
+});
+
 // Report Index
 Breadcrumbs::for('admin.report.top-book', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));

@@ -4,6 +4,7 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Data Peminjaman Buku</h3>
+        <a href="{{ route('admin.borrow.create') }}" class="btn btn-primary">Tambah Peminjaman</a>
     </div>
 
     <div class="box-body">
