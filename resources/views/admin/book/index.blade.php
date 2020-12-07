@@ -5,6 +5,7 @@
     <div class="box-header">
         <h3 class="box-title">Data Buku</h3>
         <a href="{{ route('admin.book.create') }}" class="btn btn-primary">Tambah Buku</a>
+        <a href="{{ route('admin.book.trash') }}" class="btn btn-primary">Tong Sampah</a>
     </div>
 
     <div class="box-body">

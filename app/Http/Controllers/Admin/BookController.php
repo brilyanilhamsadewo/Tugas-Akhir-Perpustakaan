@@ -145,4 +145,23 @@ class BookController extends Controller
 
         return redirect()->route('admin.book.index')->withDanger('Data buku berhasil terhapus');
     }
+
+    public function trash()
+    {
+        $books = Book::onlyTrashed()->get();
+
+        return view('admin.book.trash', compact('books'));
+    }
+
+    public function restore(Book $book)
+    {
+        $book->restore();
+        return back();
+    }
+
+    public function delete(Book $book)
+    {
+        $book->forceDelete();
+        return back();
+    }
 }

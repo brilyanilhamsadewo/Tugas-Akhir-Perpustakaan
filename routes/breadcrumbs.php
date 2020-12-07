@@ -72,6 +72,13 @@ Breadcrumbs::for('admin.book.edit', function ($trail, $book) {
     $trail->push('Edit Buku', route('admin.book.edit', $book));
 });
 
+// Book Trash
+Breadcrumbs::for('admin.book.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Buku', route('admin.book.index'));
+    $trail->push('Trash Buku', route('admin.book.trash'));
+});
+
 // Borrow Index
 Breadcrumbs::for('admin.borrow.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
