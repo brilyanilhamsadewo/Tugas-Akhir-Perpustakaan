@@ -1,5 +1,6 @@
 <?php
 
+use App\Author;
 
 Route::get('/', 'HomeController@index')->name('dashboard');
 
@@ -15,6 +16,13 @@ Route::get('/category/data', 'DataController@categories')->name('categories.data
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
 
+Route::get('/author/trash','AuthorController@trash')->name('author.trash');
+
+Route::get('/author/restore/{author}','AuthorController@restore')->name('author.restore');
+Route::bind('author', function($id) {
+    return Author::withTrashed()->find($id);
+});
+Route::get('/author/delete/{author}','AuthorController@delete')->name('author.delete');
 Route::resource('author', 'AuthorController');
 Route::resource('book', 'BookController');
 

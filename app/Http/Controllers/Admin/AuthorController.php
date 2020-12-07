@@ -102,4 +102,23 @@ class AuthorController extends Controller
 
         return redirect()->route('admin.author.index')->with('danger','Data penulis berhasil terhapus');
     }
+
+    public function trash()
+    {
+        $authors = Author::onlyTrashed()->get();
+
+        return view('admin.author.trash', compact('authors'));
+    }
+
+    public function restore(Author $author)
+    {
+        $author->restore();
+        return back();
+    }
+
+    public function delete(Author $author)
+    {
+        $author->forceDelete();
+        return back();
+    }
 }

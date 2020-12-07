@@ -25,6 +25,13 @@ Breadcrumbs::for('admin.author.edit', function ($trail, $author) {
     $trail->push('Edit Penulis', route('admin.author.edit', $author));
 });
 
+// Author Trash
+Breadcrumbs::for('admin.author.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Penulis', route('admin.author.index'));
+    $trail->push('Trash Penulis', route('admin.author.trash'));
+});
+
 // Category Index
 Breadcrumbs::for('admin.category.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
