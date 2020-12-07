@@ -53,4 +53,5 @@ Route::resource('category', 'CategoryController');
 
 Route::get('/borrowing','BorrowingController@index')->name('borrowing.index');
 
+Route::get('/user/trash','UserController@trash')->name('user.trash');
 Route::resource('user', 'UserController');

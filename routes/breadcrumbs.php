@@ -121,3 +121,10 @@ Breadcrumbs::for('admin.user.edit', function ($trail, $user) {
     $trail->push('User', route('admin.user.index'));
     $trail->push('Edit User', route('admin.user.edit', $user));
 });
+
+// User Create
+Breadcrumbs::for('admin.user.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('User', route('admin.user.index'));
+    $trail->push('Tambah User', route('admin.user.create'));
+});

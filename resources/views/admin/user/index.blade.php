@@ -4,8 +4,8 @@
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Data User</h3>
-            <a href="{{ route('admin.author.create') }}" class="btn btn-primary">Tambah User</a>
-            <a href="{{ route('admin.author.trash') }}" class="btn btn-primary">Tong Sampah</a>
+            <a href="{{ route('admin.user.create') }}" class="btn btn-primary">Tambah User</a>
+            <a href="{{ route('admin.user.trash') }}" class="btn btn-primary">Tong Sampah</a>
         </div>
         
         <div class="box-body">

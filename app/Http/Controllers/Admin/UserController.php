@@ -27,7 +27,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create', [
+            'title' => 'Tambah User',
+        ]);
     }
 
     /**
@@ -38,7 +40,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+
+        User::forceCreate([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'email_verified_at' => now(),
+        ]);
+
+        
+
+        return redirect()->route('admin.user.index')->withSuccess('Data User Berhasil Ditambahkan');
     }
 
     /**
@@ -74,9 +91,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|min:10',
+        ]);
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('admin.user.index')->withSuccess('Data User Berhasil Diperbarui');
+    
     }
 
     /**
