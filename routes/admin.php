@@ -2,6 +2,7 @@
 
 use App\Author;
 use App\Book;
+use App\Category;
 
 Route::get('/', 'HomeController@index')->name('dashboard');
 
@@ -41,6 +42,12 @@ Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name
 Route::get('/report/top-user','ReportController@topUser')->name('report.top-user');
 Route::get('/report/top-book','ReportController@topBook')->name('report.top-book');
 
+Route::get('/category/restore/{category}','CategoryController@restore')->name('category.restore');
+Route::bind('category', function($id) {
+    return Category::withTrashed()->find($id);
+});
+Route::get('/category/delete/{category}','CategoryController@delete')->name('category.delete');
+Route::get('/category/trash','CategoryController@trash')->name('category.trash');
 Route::resource('category', 'CategoryController');
 
 Route::get('/borrowing','BorrowingController@index')->name('borrowing.index');

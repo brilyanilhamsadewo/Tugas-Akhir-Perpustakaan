@@ -109,4 +109,23 @@ class CategoryController extends Controller
 
         return redirect()->route('admin.category.index')->with('danger','Data kategori berhasil terhapus');
     }
+
+    public function trash()
+    {
+        $categories = Category::onlyTrashed()->get();
+
+        return view('admin.category.trash', compact('categories'));
+    }
+
+    public function restore(Category $category)
+    {
+        $category->restore();
+        return back();
+    }
+
+    public function delete(Category $category)
+    {
+        $category->forceDelete();
+        return back();
+    }
 }

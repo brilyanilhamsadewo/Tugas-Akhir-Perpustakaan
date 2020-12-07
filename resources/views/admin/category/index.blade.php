@@ -5,6 +5,7 @@
         <div class="box-header">
             <h3 class="box-title">Data Kategori</h3>
             <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Tambah Kategori</a>
+            <a href="{{ route('admin.category.trash') }}" class="btn btn-primary">Tong Sampah</a>
         </div>
         
         <div class="box-body">

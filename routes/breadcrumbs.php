@@ -52,6 +52,13 @@ Breadcrumbs::for('admin.category.edit', function ($trail, $category) {
     $trail->push('Edit Kategori', route('admin.category.edit', $category));
 });
 
+// Category Trash
+Breadcrumbs::for('admin.category.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Kategori', route('admin.category.index'));
+    $trail->push('Trash Kategori', route('admin.category.trash'));
+});
+
 // Book Index
 Breadcrumbs::for('admin.book.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
