@@ -3,6 +3,7 @@
 use App\Author;
 use App\Book;
 use App\Category;
+use App\User;
 
 Route::get('/', 'HomeController@index')->name('dashboard');
 
@@ -54,4 +55,9 @@ Route::resource('category', 'CategoryController');
 Route::get('/borrowing','BorrowingController@index')->name('borrowing.index');
 
 Route::get('/user/trash','UserController@trash')->name('user.trash');
+Route::get('/user/restore/{user}','UserController@restore')->name('user.restore');
+Route::bind('user', function($id) {
+    return User::withTrashed()->find($id);
+});
+Route::get('/user/delete/{user}','UserController@delete')->name('user.delete');
 Route::resource('user', 'UserController');

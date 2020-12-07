@@ -113,8 +113,29 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('admin.user.index')->with('danger','Data user berhasil terhapus');
+    }
+
+    public function trash()
+    {
+        $users = User::onlyTrashed()->get();
+
+        return view('admin.user.trash', compact('users'));
+    }
+
+    public function restore(User $user)
+    {
+        $user->restore();
+        return back();
+    }
+
+    public function delete(User $user)
+    {
+        $user->forceDelete();
+        return back();
     }
 }

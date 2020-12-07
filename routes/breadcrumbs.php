@@ -128,3 +128,10 @@ Breadcrumbs::for('admin.user.create', function ($trail) {
     $trail->push('User', route('admin.user.index'));
     $trail->push('Tambah User', route('admin.user.create'));
 });
+
+// Book Trash
+Breadcrumbs::for('admin.user.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('User', route('admin.user.index'));
+    $trail->push('Trash User', route('admin.user.trash'));
+});
