@@ -44,8 +44,8 @@
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>#</h3>
-                            <p>Uknown</p>
+                            <h3>{{ $borrowhistory }}</h3>
+                            <p>Jumlah Peminjaman</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
