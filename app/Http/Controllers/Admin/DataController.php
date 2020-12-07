@@ -7,6 +7,7 @@ use App\Book;
 use App\BorrowHistory;
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
@@ -70,4 +71,16 @@ class DataController extends Controller
                     ->rawColumns(['action'])
                     ->toJson();
     }
+
+    public function users()
+    {
+        $users = User::orderBy('name', 'ASC');
+
+        return datatables()->of($users)
+            ->addColumn('action', 'admin.user.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
 }

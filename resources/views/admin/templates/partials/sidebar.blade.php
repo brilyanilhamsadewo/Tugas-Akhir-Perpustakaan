@@ -32,7 +32,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('admin.report.top-book') }}"><i class="fa fa-circle-o"></i>Daftar User</a></li>
+            <li><a href="{{ route('admin.user.index') }}"><i class="fa fa-circle-o"></i>Daftar User</a></li>
             <li><a href="{{ route('admin.report.top-user') }}"><i class="fa fa-circle-o"></i>Role</a></li>
             <li><a href="{{ route('admin.report.top-user') }}"><i class="fa fa-circle-o"></i>Role Permission</a></li>
           </ul>

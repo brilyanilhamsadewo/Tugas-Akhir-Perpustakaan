@@ -17,6 +17,7 @@ Route::get('/author/data', 'DataController@authors')->name('author.data');
 Route::get('/category/data', 'DataController@categories')->name('categories.data');
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
+Route::get('/user/data', 'DataController@users')->name('user.data');
 
 Route::get('/author/trash','AuthorController@trash')->name('author.trash');
 Route::get('/author/restore/{author}','AuthorController@restore')->name('author.restore');
@@ -51,3 +52,5 @@ Route::get('/category/trash','CategoryController@trash')->name('category.trash')
 Route::resource('category', 'CategoryController');
 
 Route::get('/borrowing','BorrowingController@index')->name('borrowing.index');
+
+Route::resource('user', 'UserController');

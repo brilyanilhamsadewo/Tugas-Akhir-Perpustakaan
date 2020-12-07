@@ -108,3 +108,9 @@ Breadcrumbs::for('admin.report.top-book', function ($trail) {
 Breadcrumbs::for('admin.report.top-user', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
 });
+
+// User Index
+Breadcrumbs::for('admin.user.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('User', route('admin.user.index'));
+});
