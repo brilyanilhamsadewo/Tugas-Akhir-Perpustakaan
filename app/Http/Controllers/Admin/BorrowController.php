@@ -35,12 +35,14 @@ class BorrowController extends Controller
         $this->validate($request, [
             'user_id' => 'required',
             'book_id' => 'required',
+            'must_return' => 'required',
             // 'qty' => 'required|numeric',
         ]);
 
         BorrowHistory::create([
             'user_id' => $request->user_id,
             'book_id' => $request->book_id,
+            'must_return' => $request->must_return,
             // 'qty' => $request->qty,
             // 'updated_at' =>$request->now(),
             // 'created_at' => $request->now(),

@@ -16,7 +16,7 @@
                     <th>Nama</th>
                     <th>Judul Buku</th>
                     <th>Tanggal Pinjam</th>
-                    {{-- <th>Tanggal Harus Kembali</th> --}}
+                    <th>Tanggal Harus Kembali</th>
                     <th>Tanggal Kembali</th>
                     <th>Aksi</th>
                     {{-- <th>Denda</th> --}}
@@ -53,7 +53,7 @@
                     { data: 'user'},
                     { data: 'book_title'},
                     { data: 'created_at'},
-                    // { data: ''},
+                    { data: 'must_return'},
                     { data: 'returned_at'},
                     { data: 'action'},
                     // { data: '#'}

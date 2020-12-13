@@ -30,6 +30,14 @@
                     @enderror
                 </div>
 
+                <div class="form-group @error('must_return') has-error @enderror">
+                    <label for="">Must Return</label>
+                    <input type="date" name="must_return" class="form-control" placeholder="Masukkan Tanggal Harus Kembali" value="{{ old('must_return') }}">
+                    @error('name')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 {{-- <div class="form-group @error('qty') has-error @enderror">
                     <label for="">Jumlah</label>
                     <input type="number" name="qty" class="form-control" placeholder="Masukkan jumlah buku" value="{{ old('qty') }}">
