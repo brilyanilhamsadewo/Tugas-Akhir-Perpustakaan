@@ -14,15 +14,16 @@
             <table id="" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Nomor</th>
                         <th>Nama</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php $no = 1; @endphp
                     @foreach ($authors as $author)
                         <tr>
-                            <td>{{ $author->id }}</td>
+                            <td>{{ $no++ }}</td>
                             <td>{{ $author->name }}</td>
                             <td>
                                 <a href="{{ route('admin.author.restore', $author)}}" class="btn btn-success">Restore</a>

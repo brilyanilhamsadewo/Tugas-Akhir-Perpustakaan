@@ -13,7 +13,7 @@
             <table id="dataTable" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Nomor</th>
                         <th>Nama Kategori</th>
                         <th>Aksi</th>
                     </tr>

@@ -19,9 +19,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php $no = 1; @endphp
                     @foreach ($categories as $category)
                         <tr>
-                            <td>{{ $category->id }}</td>
+                            <td>{{ $no++ }}</td>
                             <td>{{ $category->categories_name }}</td>
                             <td>
                                 <a href="{{ route('admin.category.restore', $category)}}" class="btn btn-success">Restore</a>

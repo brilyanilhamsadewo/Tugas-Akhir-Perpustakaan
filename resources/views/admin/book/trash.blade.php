@@ -21,9 +21,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php $no = 1; @endphp
                     @foreach ($books as $book)
                         <tr>
-                            <td>{{ $book->id }}</td>
+                            <td>{{ $no++ }}</td>
                             <td>{{ $book->title }}</td>
                             <td>{{ $book->issn }}</td>
                             <td>

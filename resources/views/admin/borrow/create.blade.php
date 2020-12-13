@@ -22,7 +22,7 @@
                     <label for="">Judul Buku</label>
                     <select name="book_id" id="" class="form-control select2">
                         @foreach ($books as $book)
-                            <option value="{{ $book->id }}">{{ $book->title }}</option>
+                            <option value="{{ $book->id }}">{{ $book->title.$book->issn}}</option>
                         @endforeach
                     </select>
                     @error('book_id')

@@ -15,7 +15,11 @@
                     <th>Id</th>
                     <th>Nama</th>
                     <th>Judul Buku</th>
+                    <th>Tanggal Pinjam</th>
+                    {{-- <th>Tanggal Harus Kembali</th> --}}
+                    <th>Tanggal Kembali</th>
                     <th>Aksi</th>
+                    {{-- <th>Denda</th> --}}
                 </tr>
             </thead>
         </table>
@@ -48,7 +52,11 @@
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'user'},
                     { data: 'book_title'},
-                    { data: 'action'}
+                    { data: 'created_at'},
+                    // { data: ''},
+                    { data: 'returned_at'},
+                    { data: 'action'},
+                    // { data: '#'}
                 ]
             });
         });
