@@ -29,4 +29,31 @@ class HomeController extends Controller
             'books' => $books,
         ]);
     }
+
+    public function runningborrow()
+    {
+        $books = auth()->user()->borrow;
+
+        return view('runningborrow', [
+            'books' => $books,
+        ]);
+    }
+
+    public function search()
+    {
+        // $books = auth()->user()->borrow;
+
+        return view('search', [
+            // 'books' => $books,
+        ]);
+    }
+
+    public function requestbuku()
+    {
+        // $books = auth()->user()->borrow;
+
+        return view('requestbuku', [
+            // 'books' => $books,
+        ]);
+    }
 }
