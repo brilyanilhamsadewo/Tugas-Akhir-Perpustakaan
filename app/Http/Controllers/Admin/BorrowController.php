@@ -20,6 +20,13 @@ class BorrowController extends Controller
         ]);
     }
 
+    public function history()
+    {
+        return view('admin.borrow.history', [
+            'title' => 'History data buku yang telah dipinjam',
+        ]);
+    }
+
     public function create()
     {
         return view('admin.borrow.create', [

@@ -72,6 +72,25 @@ class DataController extends Controller
                     ->toJson();
     }
 
+    public function historyborrow()
+    {
+        $history = BorrowHistory::latest()->get();
+
+        $history->load('user','book');
+
+        return datatables()->of($history)
+                    ->addColumn('user', function(BorrowHistory $model) {
+                        return $model->user->name;
+                    })
+                    ->addColumn('book_title', function(BorrowHistory $model) {
+                        return $model->book->title;
+                    })
+                    ->addColumn('action', 'admin.borrow.action')
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->toJson();
+    }
+
     public function users()
     {
         $users = User::orderBy('name', 'ASC');

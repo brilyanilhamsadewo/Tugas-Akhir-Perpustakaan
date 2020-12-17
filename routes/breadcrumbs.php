@@ -92,6 +92,13 @@ Breadcrumbs::for('admin.borrow.index', function ($trail) {
     $trail->push('Peminjaman', route('admin.borrow.index'));
 });
 
+// Borrow History
+Breadcrumbs::for('admin.borrow.history', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Peminjaman', route('admin.borrow.index'));
+    $trail->push('History', route('admin.borrow.history'));
+});
+
 // Borrow Create
 Breadcrumbs::for('admin.borrow.create', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));

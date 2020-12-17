@@ -29,4 +29,9 @@ class BorrowHistory extends Model
     {
         return $query->where('returned_at', null);
     }
+
+    public function scopeIsHistoryBorrow($query)
+    {
+        return $query->where('returned_at', notNullValue());
+    }
 }

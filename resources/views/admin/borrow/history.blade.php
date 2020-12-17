@@ -3,11 +3,11 @@
 @section('content')
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Data Peminjaman Buku</h3>
+        <h3 class="box-title">History Peminjaman Buku</h3>
         <a href="{{ route('admin.borrow.create') }}" class="btn btn-primary">Tambah Peminjaman</a>
-        <a href="{{ route('admin.borrow.history') }}" class="btn btn-primary">History Peminjaman</a>
+        <a href="#" class="btn btn-primary">History Peminjaman</a>
     </div>
-
+    
     <div class="box-body">
 
         <table id="dataTable" class="table table-bordered table-hover">
@@ -18,8 +18,9 @@
                     <th>Judul Buku</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Harus Kembali</th>
-                    <th>Aksi</th>
-                    {{-- <th>Denda</th> --}}
+                    <th>Tanggal Kembali</th>
+                    <th>Lama Peminjaman</th>
+                    <th>Denda</th>
                 </tr>
             </thead>
         </table>
@@ -47,15 +48,16 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.borrow.data') }}',
+                ajax: '{{ route('admin.historyborrow.data') }}',
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'user'},
                     { data: 'book_title'},
                     { data: 'created_at'},
                     { data: 'must_return'},
-                    { data: 'action'},
-                    // { data: '#'}
+                    { data: 'returned_at'},
+                    { data: 'returned_at'},
+                    { data: 'returned_at'},
                 ]
             });
         });

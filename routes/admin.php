@@ -18,6 +18,7 @@ Route::get('/author/data', 'DataController@authors')->name('author.data');
 Route::get('/category/data', 'DataController@categories')->name('categories.data');
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
+Route::get('/historyborrow/data', 'DataController@historyborrow')->name('historyborrow.data');
 Route::get('/user/data', 'DataController@users')->name('user.data');
 
 Route::get('/author/trash','AuthorController@trash')->name('author.trash');
@@ -37,6 +38,7 @@ Route::get('/book/delete/{book}','BookController@delete')->name('book.delete');
 Route::resource('book', 'BookController');
 
 Route::get('/borrow','BorrowController@index')->name('borrow.index');
+Route::get('/borrow/history','BorrowController@history')->name('borrow.history');
 Route::get('/borrow/create','BorrowController@create')->name('borrow.create');
 Route::post('/borrow/store','BorrowController@store')->name('borrow.store');
 Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name('borrow.return');
