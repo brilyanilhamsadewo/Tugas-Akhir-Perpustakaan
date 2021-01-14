@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="form-group @error('must_return') has-error @enderror">
-                    <label for="">Must Return</label>
+                    <label for="">Tanggal Harus Kembali</label>
                     <input type="date" name="must_return" class="form-control" placeholder="Masukkan Tanggal Harus Kembali" value="{{ old('must_return') }}">
                     @error('name')
                         <span class="help-block">{{ $message }}</span>

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Frontend\BookController@index')->name('homepage');
+Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/book/{book}', 'Frontend\BookController@show')->name('book.show');
 Route::post('/book/{book}/borrow', 'Frontend\BookController@borrow')->name('book.borrow')->middleware('auth');
 Auth::routes(['verify' => true]);
@@ -20,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/search', 'HomeController@search')->name('search')->middleware('verified');
 Route::get('/runningborrow', 'HomeController@runningborrow')->name('runningborrow')->middleware('verified');
 Route::get('/requestbuku', 'HomeController@requestbuku')->name('requestbuku')->middleware('verified');
+
+Route::get('/pegawai','PegawaiController@index');
+Route::get('/pegawai/cari','PegawaiController@cari');

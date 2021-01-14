@@ -17,7 +17,7 @@
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Email Terverifikasi</th>
-                        {{-- <th>password</th> --}}
+                        <th>password</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -54,7 +54,7 @@
                     { data: 'name'},
                     { data: 'email'},
                     { data: 'email_verified_at'},
-                    // { data: 'password'},
+                    { data: 'password'},
                     { data: 'action'}
                 ]
             });

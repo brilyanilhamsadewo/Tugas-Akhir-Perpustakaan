@@ -16,6 +16,16 @@ class Book extends Model
         return $this->belongsTo(Author::class);
     }
 
+    public function penerbit()
+    {
+        return $this->belongsTo(Penerbit::class);
+    }
+
+    public function rak()
+    {
+        return $this->belongsTo(Rak::class);
+    }
+
     public function getCover()
     {
         if (substr($this->cover,0,5) == "https") {

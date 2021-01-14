@@ -32,11 +32,10 @@ class HomeController extends Controller
 
     public function runningborrow()
     {
-        $books = auth()->user()->borrow;
-
-        return view('runningborrow', [
-            'books' => $books,
-        ]);
+        // $books = auth()->user()->borrow;
+        // return view('runningborrow', [
+        //     'books' => $books,
+        // ]);
     }
 
     public function search()
