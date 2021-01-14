@@ -3,6 +3,7 @@
 use App\Author;
 use App\Book;
 use App\Category;
+use App\Penerbit;
 use App\User;
 
 Route::get('/', 'HomeController@index')->name('dashboard');
@@ -53,6 +54,14 @@ Route::bind('category', function($id) {
 Route::get('/category/delete/{category}','CategoryController@delete')->name('category.delete');
 Route::get('/category/trash','CategoryController@trash')->name('category.trash');
 Route::resource('category', 'CategoryController');
+
+Route::get('/penerbit/restore/{penerbit}','PenerbitController@restore')->name('penerbit.restore');
+Route::bind('penerbit', function($id) {
+    return Penerbit::withTrashed()->find($id);
+});
+Route::get('/penerbit/delete/{penerbit}','PenerbitController@delete')->name('penerbit.delete');
+Route::get('/penerbit/trash','PenerbitController@trash')->name('penerbit.trash');
+Route::resource('penerbit', 'PenerbitController');
 
 Route::get('/borrowing','BorrowingController@index')->name('borrowing.index');
 

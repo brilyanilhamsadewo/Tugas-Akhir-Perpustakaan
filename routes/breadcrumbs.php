@@ -59,6 +59,33 @@ Breadcrumbs::for('admin.category.trash', function ($trail) {
     $trail->push('Trash Kategori', route('admin.category.trash'));
 });
 
+// Penerbit Index
+Breadcrumbs::for('admin.penerbit.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Penerbit', route('admin.penerbit.index'));
+});
+
+// Penerbit Create
+Breadcrumbs::for('admin.penerbit.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Penerbit', route('admin.penerbit.index'));
+    $trail->push('Tambah Penerbit', route('admin.penerbit.create'));
+});
+
+// Penerbit Edit
+Breadcrumbs::for('admin.penerbit.edit', function ($trail, $penerbit) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Penerbit', route('admin.penerbit.index'));
+    $trail->push('Edit Penerbit', route('admin.penerbit.edit', $penerbit));
+});
+
+// Penerbit Trash
+Breadcrumbs::for('admin.penerbit.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Penerbit', route('admin.penerbit.index'));
+    $trail->push('Trash Penerbit', route('admin.penerbit.trash'));
+});
+
 // Book Index
 Breadcrumbs::for('admin.book.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
