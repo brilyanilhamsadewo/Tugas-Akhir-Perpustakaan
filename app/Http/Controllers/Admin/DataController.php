@@ -7,6 +7,7 @@ use App\Book;
 use App\BorrowHistory;
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Penerbit;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,17 @@ class DataController extends Controller
 
         return datatables()->of($categories)
             ->addColumn('action', 'admin.category.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function penerbit()
+    {
+        $penerbits = Penerbit::orderBy('nama_penerbit', 'ASC');
+
+        return datatables()->of($penerbits)
+            ->addColumn('action', 'admin.penerbit.action')
             ->addIndexColumn()
             ->rawColumns(['action'])
             ->toJson();

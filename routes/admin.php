@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index')->name('dashboard');
 
 Route::get('/author/data', 'DataController@authors')->name('author.data');
 Route::get('/category/data', 'DataController@categories')->name('categories.data');
+Route::get('/penerbit/data', 'DataController@penerbit')->name('penerbit.data');
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
 Route::get('/historyborrow/data', 'DataController@historyborrow')->name('historyborrow.data');

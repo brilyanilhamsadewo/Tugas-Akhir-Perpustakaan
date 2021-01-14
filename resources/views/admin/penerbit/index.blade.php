@@ -3,9 +3,9 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Data Kategori</h3>
-            <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Tambah Kategori</a>
-            <a href="{{ route('admin.category.trash') }}" class="btn btn-primary">Tong Sampah</a>
+            <h3 class="box-title">Data Penerbit</h3>
+            <a href="{{ route('admin.penerbit.create') }}" class="btn btn-primary">Tambah Penerbit</a>
+            <a href="{{ route('admin.penerbit.trash') }}" class="btn btn-primary">Tong Sampah</a>
         </div>
         
         <div class="box-body">
@@ -14,7 +14,7 @@
                 <thead>
                     <tr>
                         <th>Nomor</th>
-                        <th>Nama Kategori</th>
+                        <th>Nama Penerbit</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -45,10 +45,10 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.categories.data') }}',
+                ajax: '{{ route('admin.penerbit.data') }}',
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
-                    { data: 'categories_name'},
+                    { data: 'nama_penerbit'},
                     { data: 'action'}
                 ]
             });
