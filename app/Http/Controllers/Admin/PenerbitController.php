@@ -42,6 +42,12 @@ class PenerbitController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nama_penerbit' => 'required|min:3',
+        ]);
+        Penerbit::create($request->only('nama_penerbit'));
+
+        return redirect()->route('admin.penerbit.index')->with('success','Data penerbit berhasil ditambahkan');
     }
 
     /**
