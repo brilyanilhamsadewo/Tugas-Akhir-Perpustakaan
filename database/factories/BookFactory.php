@@ -5,6 +5,8 @@
 use App\Author;
 use App\Book;
 use App\Category;
+use App\Penerbit;
+use App\Rak;
 use Faker\Generator as Faker;
 
 $factory->define(Book::class, function (Faker $faker) {
@@ -17,6 +19,8 @@ $factory->define(Book::class, function (Faker $faker) {
     return [
         'author_id' => Author::inRandomOrder()->first()->id,
         'category_id' => Category::inRandomOrder()->first()->id,
+        'penerbit_id' => Penerbit::inRandomOrder()->first()->id,
+        'rak_id' => Rak::inRandomOrder()->first()->id,
         'title' => $faker->sentence(4),
         'issn' => $issn,
         'description' => $faker->sentence(50),
