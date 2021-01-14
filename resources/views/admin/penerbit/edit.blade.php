@@ -3,17 +3,17 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Edit Data Kategori</h3>
+            <h3 class="box-title">Edit Data Penerbit</h3>
         </div>
 
         <div class="box-body">
-            <form action="{{ route('admin.category.update', $author) }}" method="POST">
+            <form action="{{ route('admin.penerbit.update', $penerbit) }}" method="POST">
                 @csrf
                 @method("PUT")
-                <div class="form-group @error('categories_name') has-error @enderror">
-                    <label for="">Nama Kategori</label>
-                    <input type="text" name="categories_name" class="form-control" placeholder="Masukkan nama kategori" value="{{ old('categories_name') ?? $author->categories_name}}">
-                    @error('categories_name')
+                <div class="form-group @error('nama_penerbit') has-error @enderror">
+                    <label for="">Nama Penerbit</label>
+                    <input type="text" name="nama_penerbit" class="form-control" placeholder="Masukkan nama penerbit" value="{{ old('nama_penerbit') ?? $penerbit->nama_penerbit}}">
+                    @error('nama_penerbit')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>

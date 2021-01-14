@@ -1,5 +1,5 @@
-<a href="{{ route('admin.category.edit', $model) }}" class="btn btn-warning">Edit</a>
-<button href="{{ route('admin.category.destroy', $model) }}" class="btn btn-danger" id="delete">Hapus</button>
+<a href="{{ route('admin.penerbit.edit', $model) }}" class="btn btn-warning">Edit</a>
+<button href="{{ route('admin.penerbit.destroy', $model) }}" class="btn btn-danger" id="delete">Hapus</button>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>

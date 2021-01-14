@@ -71,7 +71,7 @@ class PenerbitController extends Controller
     {
         //
         return view('admin.penerbit.edit', [
-            'author' => $penerbit,
+            'penerbit' => $penerbit,
             'title' => 'Edit Penerbit',
             ]);
     }
@@ -83,9 +83,15 @@ class PenerbitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Penerbit $penerbit)
     {
         //
+        $this->validate($request, [
+            'nama_penerbit' => 'required|min:3',
+        ]);
+        $penerbit->update($request->only('nama_penerbit'));
+
+        return redirect()->route('admin.penerbit.index')->with('info','Data penerbit berhasil diupdate');
     }
 
     /**
@@ -94,9 +100,12 @@ class PenerbitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Penerbit $penerbit)
     {
         //
+        $penerbit->delete();
+
+        return redirect()->route('admin.penerbit.index')->with('danger','Data penerbit berhasil terhapus');
     }
 
     public function trash()

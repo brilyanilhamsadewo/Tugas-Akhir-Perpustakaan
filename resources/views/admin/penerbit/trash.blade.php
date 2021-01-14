@@ -20,10 +20,10 @@
                 </thead>
                 <tbody>
                     @php $no = 1; @endphp
-                    @foreach ($penerbits as $pen)
+                    @foreach ($penerbits as $penerbit)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $pen->nama_penerbit }}</td>
+                            <td>{{ $penerbit->nama_penerbit }}</td>
                             <td>
                                 <a href="{{ route('admin.penerbit.restore', $penerbit)}}" class="btn btn-success">Restore</a>
                                 <a href="{{ route('admin.penerbit.delete', $penerbit)}}" class="btn btn-danger">Delete Permanent</a>
