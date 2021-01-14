@@ -4,6 +4,7 @@ use App\Author;
 use App\Book;
 use App\Category;
 use App\Penerbit;
+use App\Rak;
 use App\User;
 
 Route::get('/', 'HomeController@index')->name('dashboard');
@@ -18,6 +19,7 @@ Route::get('/', 'HomeController@index')->name('dashboard');
 Route::get('/author/data', 'DataController@authors')->name('author.data');
 Route::get('/category/data', 'DataController@categories')->name('categories.data');
 Route::get('/penerbit/data', 'DataController@penerbit')->name('penerbit.data');
+Route::get('/rak/data', 'DataController@rak')->name('rak.data');
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
 Route::get('/historyborrow/data', 'DataController@historyborrow')->name('historyborrow.data');
@@ -63,6 +65,16 @@ Route::bind('penerbit', function($id) {
 Route::get('/penerbit/delete/{penerbit}','PenerbitController@delete')->name('penerbit.delete');
 Route::get('/penerbit/trash','PenerbitController@trash')->name('penerbit.trash');
 Route::resource('penerbit', 'PenerbitController');
+
+
+Route::get('/rak/restore/{rak}','RakController@restore')->name('rak.restore');
+Route::bind('rak', function($id) {
+    return Rak::withTrashed()->find($id);
+});
+Route::get('/rak/delete/{rak}','RakController@delete')->name('rak.delete');
+Route::get('/rak/trash','RakController@trash')->name('rak.trash');
+Route::resource('rak', 'RakController');
+
 
 Route::get('/borrowing','BorrowingController@index')->name('borrowing.index');
 

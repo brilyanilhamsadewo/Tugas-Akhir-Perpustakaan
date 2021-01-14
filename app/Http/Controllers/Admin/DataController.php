@@ -8,6 +8,7 @@ use App\BorrowHistory;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Penerbit;
+use App\Rak;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -45,6 +46,18 @@ class DataController extends Controller
             ->rawColumns(['action'])
             ->toJson();
     }
+
+    public function rak()
+    {
+        $raks = Rak::orderBy('nama_rak', 'ASC');
+
+        return datatables()->of($raks)
+            ->addColumn('action', 'admin.rak.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
 
     public function books()
     {

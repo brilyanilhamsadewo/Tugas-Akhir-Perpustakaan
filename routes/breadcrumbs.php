@@ -86,6 +86,33 @@ Breadcrumbs::for('admin.penerbit.trash', function ($trail) {
     $trail->push('Trash Penerbit', route('admin.penerbit.trash'));
 });
 
+// Rak Index
+Breadcrumbs::for('admin.rak.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Rak', route('admin.rak.index'));
+});
+
+// Rak Create
+Breadcrumbs::for('admin.rak.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Rak', route('admin.rak.index'));
+    $trail->push('Tambah Rak', route('admin.rak.create'));
+});
+
+// Rak Edit
+Breadcrumbs::for('admin.rak.edit', function ($trail, $rak) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Rak', route('admin.rak.index'));
+    $trail->push('Edit Rak', route('admin.rak.edit', $rak));
+});
+
+// Rak Trash
+Breadcrumbs::for('admin.rak.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Rak', route('admin.rak.index'));
+    $trail->push('Trash Rak', route('admin.rak.trash'));
+});
+
 // Book Index
 Breadcrumbs::for('admin.book.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
