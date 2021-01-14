@@ -3,17 +3,17 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Tambah Data Kategori</h3>
+            <h3 class="box-title">Tambah Data Penerbit</h3>
         </div>
 
         <div class="box-body">
-            <form action="{{ route('admin.category.store') }}" method="POST">
+            <form action="{{ route('admin.penerbit.store') }}" method="POST">
                 @csrf
 
                 <div class="form-group @error('name') has-error @enderror">
-                    <label for="">Nama Kategori</label>
-                    <input type="text" name="categories_name" class="form-control" placeholder="Masukkan nama kategori" value="{{ old('categories_name') }}">
-                    @error('categories_name')
+                    <label for="">Nama Penerbit</label>
+                    <input type="text" name="nama_penerbit" class="form-control" placeholder="Masukkan nama penerbit" value="{{ old('nama_penerbit') }}">
+                    @error('nama_penerbit')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>
