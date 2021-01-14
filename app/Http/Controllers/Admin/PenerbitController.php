@@ -98,4 +98,23 @@ class PenerbitController extends Controller
     {
         //
     }
+
+    public function trash()
+    {
+        $penerbits = Penerbit::onlyTrashed()->get();
+
+        return view('admin.penerbit.trash', compact('penerbits'));
+    }
+
+    public function restore(Penerbit $penerbit)
+    {
+        $penerbit->restore();
+        return back();
+    }
+
+    public function delete(Penerbit $penerbit)
+    {
+        $penerbit->forceDelete();
+        return back();
+    }
 }

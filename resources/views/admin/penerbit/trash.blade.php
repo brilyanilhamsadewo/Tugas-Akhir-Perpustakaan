@@ -3,10 +3,10 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Data kategori Terhapus</h3>
+            <h3 class="box-title">Data Penerbit Terhapus</h3>
             {{-- <a href="{{ route('admin.author.create') }}" class="btn btn-danger">Delete All</a>
             <a href="{{ route('admin.author.trash') }}" class="btn btn-info">Restore All</a> --}}
-            <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">Back</a>
+            <a href="{{ route('admin.penerbit.index') }}" class="btn btn-secondary">Back</a>
         </div>
         
         <div class="box-body">
@@ -15,18 +15,18 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nama Kategori</th>
+                        <th>Nama Penerbit</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php $no = 1; @endphp
-                    @foreach ($categories as $category)
+                    @foreach ($penerbits as $pen)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $category->categories_name }}</td>
+                            <td>{{ $pen->nama_penerbit }}</td>
                             <td>
-                                <a href="{{ route('admin.category.restore', $category)}}" class="btn btn-success">Restore</a>
-                                <a href="{{ route('admin.category.delete', $category)}}" class="btn btn-danger">Delete Permanent</a>
+                                <a href="{{ route('admin.penerbit.restore', $penerbit)}}" class="btn btn-success">Restore</a>
+                                <a href="{{ route('admin.penerbit.delete', $penerbit)}}" class="btn btn-danger">Delete Permanent</a>
                                 
                             </td>
                         </tr>
