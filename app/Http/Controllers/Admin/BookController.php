@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Author;
 use App\Book;
 use App\Http\Controllers\Controller;
+use App\Penerbit;
+use App\Rak;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,6 +34,8 @@ class BookController extends Controller
         return view('admin.book.create', [
             'title' => 'Tambah Buku',
             'authors' => Author::orderBy('name', 'ASC')->get(),
+            'penerbits' => Penerbit::orderBy('nama_penerbit', 'ASC')->get(),
+            'raks' => Rak::orderBy('lokasi_rak', 'ASC')->get(),
         ]);
     }
 
@@ -48,6 +52,8 @@ class BookController extends Controller
             'issn' => 'required|numeric|min:10',
             'description' => 'required|min:20',
             'author_id' => 'required',
+            'penerbit_id' => 'required',
+            'rak_id' => 'required',
             'cover' => 'file|image',
             'qty' => 'required|numeric',
         ]);
@@ -63,6 +69,8 @@ class BookController extends Controller
             'issn' => $request->issn,
             'description' => $request->description,
             'author_id' => $request->author_id,
+            'penerbit_id' => $request->penerbit_id,
+            'rak_id' => $request->rak_id,
             'cover' => $cover,
             'qty' => $request->qty,
         ]);

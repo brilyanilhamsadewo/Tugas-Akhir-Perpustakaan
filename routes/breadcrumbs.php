@@ -218,3 +218,10 @@ Breadcrumbs::for('admin.pinjam.create', function ($trail) {
     $trail->push('Peminjaman', route('admin.pinjam.index'));
     $trail->push('Tambah Peminjaman', route('admin.pinjam.create'));
 });
+
+//role
+// Pinjam Index
+Breadcrumbs::for('admin.role.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Role', route('admin.role.index'));
+});

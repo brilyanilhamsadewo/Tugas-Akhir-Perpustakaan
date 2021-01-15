@@ -94,3 +94,5 @@ Route::bind('user', function($id) {
 });
 Route::get('/user/delete/{user}','UserController@delete')->name('user.delete');
 Route::resource('user', 'UserController');
+
+Route::resource('role', 'RoleController');
