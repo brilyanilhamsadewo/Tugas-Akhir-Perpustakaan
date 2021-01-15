@@ -196,3 +196,25 @@ Breadcrumbs::for('admin.user.trash', function ($trail) {
     $trail->push('User', route('admin.user.index'));
     $trail->push('Trash User', route('admin.user.trash'));
 });
+
+
+//pinjam v2
+// Pinjam Index
+Breadcrumbs::for('admin.pinjam.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Peminjaman', route('admin.pinjam.index'));
+});
+
+// // Borrow History
+// Breadcrumbs::for('admin.borrow.history', function ($trail) {
+//     $trail->push('Beranda', route('admin.dashboard'));
+//     $trail->push('Peminjaman', route('admin.borrow.index'));
+//     $trail->push('History', route('admin.borrow.history'));
+// });
+
+// Pinjam Create
+Breadcrumbs::for('admin.pinjam.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Peminjaman', route('admin.pinjam.index'));
+    $trail->push('Tambah Peminjaman', route('admin.pinjam.create'));
+});

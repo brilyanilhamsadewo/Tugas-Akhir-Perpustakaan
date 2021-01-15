@@ -8,6 +8,7 @@ use App\BorrowHistory;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Penerbit;
+use App\PinjamHistori;
 use App\Rak;
 use App\User;
 use Illuminate\Http\Request;
@@ -95,6 +96,28 @@ class DataController extends Controller
                     ->addIndexColumn()
                     ->rawColumns(['action'])
                     ->toJson();
+    }
+
+    public function pinjam()
+    {
+        $borrows = PinjamHistori::isBorrowed()->latest()->get();
+
+        $borrows->load('user','book');
+
+        return datatables()->of($borrows)
+                    ->addColumn('user', function(PinjamHistori $model) {
+                        return $model->user->name;
+                    })
+                    ->addColumn('book_title', function(PinjamHistori $model) {
+                        return $model->book->title;
+                    })
+                    ->addColumn('nama_admin', function(PinjamHistori $model) {
+                        return $model->user->name;
+                    })
+                    ->addColumn('action', 'admin.borrow.action')
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->toJson(); 
     }
 
     public function historyborrow()

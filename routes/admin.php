@@ -22,6 +22,7 @@ Route::get('/penerbit/data', 'DataController@penerbit')->name('penerbit.data');
 Route::get('/rak/data', 'DataController@rak')->name('rak.data');
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
+Route::get('/pinjam/data', 'DataController@pinjam')->name('pinjam.data');
 Route::get('/historyborrow/data', 'DataController@historyborrow')->name('historyborrow.data');
 Route::get('/user/data', 'DataController@users')->name('user.data');
 
@@ -46,6 +47,14 @@ Route::get('/borrow/history','BorrowController@history')->name('borrow.history')
 Route::get('/borrow/create','BorrowController@create')->name('borrow.create');
 Route::post('/borrow/store','BorrowController@store')->name('borrow.store');
 Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name('borrow.return');
+
+
+Route::get('/pinjam','PinjamController@index')->name('pinjam.index');
+Route::get('/borrow/history','BorrowController@history')->name('borrow.history');
+Route::get('/pinjam/create','PinjamController@create')->name('pinjam.create');
+Route::post('/pinjam/store','PinjamController@store')->name('pinjam.store');
+Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name('borrow.return');
+
 
 Route::get('/report/top-user','ReportController@topUser')->name('report.top-user');
 Route::get('/report/top-book','ReportController@topBook')->name('report.top-book');
