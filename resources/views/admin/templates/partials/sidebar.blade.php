@@ -10,7 +10,7 @@
         <li><a href="{{ route('admin.rak.index') }}"><i class="fa fa-book"></i> <span>Rak</span></a></li>
         <li><a href="{{ route('admin.book.index') }}"><i class="fa fa-book"></i> <span>Buku</span></a></li>
         {{-- <li><a href="{{ route('admin.borrowing.index') }}"><i class="fa fa-book"></i> <span>Pinjam Buku</span></a></li> --}}
-        <li><a href="{{ route('admin.borrow.index') }}"><i class="fa fa-book"></i> <span>Buku Sedang Dipinjam</span></a></li>
+        {{-- <li><a href="{{ route('admin.borrow.index') }}"><i class="fa fa-book"></i> <span>Buku Sedang Dipinjam</span></a></li> --}}
         <li><a href="{{ route('admin.pinjam.index') }}"><i class="fa fa-book"></i> <span>Peminjaman V2</span></a></li>
         <li class="treeview">
           <a href="#">
