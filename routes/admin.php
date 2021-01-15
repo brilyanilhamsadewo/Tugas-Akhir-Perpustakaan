@@ -96,3 +96,4 @@ Route::get('/user/delete/{user}','UserController@delete')->name('user.delete');
 Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
+Route::resource('pengembalian', 'PengembalianController');

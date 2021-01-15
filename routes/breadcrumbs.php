@@ -225,3 +225,9 @@ Breadcrumbs::for('admin.role.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
     $trail->push('Role', route('admin.role.index'));
 });
+
+// Pinjam Index
+Breadcrumbs::for('admin.pengembalian.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Pengembalian', route('admin.pengembalian.index'));
+});
