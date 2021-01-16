@@ -45,16 +45,16 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8',
         ]);
-
-        User::forceCreate([
+        
+        $user = User::forceCreate([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'email_verified_at' => now(),
         ]);
 
+        $user->assignRole('admin');
         
-
         return redirect()->route('admin.user.index')->withSuccess('Data User Berhasil Ditambahkan');
     }
 
