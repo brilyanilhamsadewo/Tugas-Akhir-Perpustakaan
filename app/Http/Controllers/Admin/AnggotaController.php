@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Anggota;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -87,8 +88,8 @@ class AnggotaController extends Controller
 
     public function trash()
     {
-        $authors = Author::onlyTrashed()->get();
+        $anggotas = Anggota::onlyTrashed()->get();
 
-        return view('admin.author.trash', compact('authors'));
+        return view('admin.anggota.trash', compact('anggotas'));
     }
 }

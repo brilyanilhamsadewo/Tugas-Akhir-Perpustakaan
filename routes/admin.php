@@ -1,5 +1,6 @@
 <?php
 
+use App\Anggota;
 use App\Author;
 use App\Book;
 use App\Category;
@@ -97,4 +98,12 @@ Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
 Route::resource('pengembalian', 'PengembalianController');
+
+
+Route::get('/anggota/trash','AnggotaController@trash')->name('anggota.trash');
+Route::get('/anggota/restore/{anggota}','AnggotaController@restore')->name('anggota.restore');
+Route::bind('anggota', function($id) {
+    return Anggota::withTrashed()->find($id);
+});
+Route::get('/anggota/delete/{anggota}','AnggotaController@delete')->name('anggota.delete');
 Route::resource('anggota', 'AnggotaController');
