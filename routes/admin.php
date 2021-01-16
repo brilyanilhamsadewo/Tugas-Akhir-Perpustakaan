@@ -97,3 +97,4 @@ Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
 Route::resource('pengembalian', 'PengembalianController');
+Route::resource('anggota', 'AnggotaController');
