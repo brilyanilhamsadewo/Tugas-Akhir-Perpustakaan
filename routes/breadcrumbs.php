@@ -219,6 +219,13 @@ Breadcrumbs::for('admin.pinjam.create', function ($trail) {
     $trail->push('Tambah Peminjaman', route('admin.pinjam.create'));
 });
 
+// Anggota Create
+Breadcrumbs::for('admin.anggota.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Anggota', route('admin.anggota.index'));
+    $trail->push('Tambah Anggota', route('admin.anggota.create'));
+});
+
 //role
 // Pinjam Index
 Breadcrumbs::for('admin.role.index', function ($trail) {
