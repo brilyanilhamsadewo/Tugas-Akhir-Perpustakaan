@@ -26,6 +26,7 @@ Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
 Route::get('/pinjam/data', 'DataController@pinjam')->name('pinjam.data');
 Route::get('/historyborrow/data', 'DataController@historyborrow')->name('historyborrow.data');
 Route::get('/user/data', 'DataController@users')->name('user.data');
+Route::get('/anggota/data', 'DataController@anggotas')->name('anggota.data');
 
 Route::get('/author/trash','AuthorController@trash')->name('author.trash');
 Route::get('/author/restore/{author}','AuthorController@restore')->name('author.restore');

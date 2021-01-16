@@ -18,6 +18,7 @@
                         <th>Nama</th>
                         <th>Tahun Masuk</th>
                         <th>No Telepon</th>
+                        <th>Jenis Kelamin</th>
                         {{-- <th>Email Terverifikasi</th> --}}
                         {{-- <th>password</th> --}}
                         <th>Aksi</th>
@@ -50,11 +51,14 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.user.data') }}',
+                ajax: '{{ route('admin.anggota.data') }}',
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
-                    { data: 'name'},
-                    { data: 'email'},
+                    { data: 'nis/nig'},
+                    { data: 'nama'},
+                    { data: 'tahun_masuk'},
+                    { data: 'no_telp'},
+                    { data: 'jenis_kelamin'},
                     // { data: 'email_verified_at'},
                     // { data: 'password'},
                     { data: 'action'}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Anggota;
 use App\Author;
 use App\Book;
 use App\BorrowHistory;
@@ -145,6 +146,17 @@ class DataController extends Controller
 
         return datatables()->of($users)
             ->addColumn('action', 'admin.user.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function anggotas()
+    {
+        $anggotas = Anggota::orderBy('nama', 'ASC');
+
+        return datatables()->of($anggotas)
+            ->addColumn('action', 'admin.anggota.action')
             ->addIndexColumn()
             ->rawColumns(['action'])
             ->toJson();
