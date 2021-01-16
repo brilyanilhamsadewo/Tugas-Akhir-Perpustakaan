@@ -231,3 +231,9 @@ Breadcrumbs::for('admin.pengembalian.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
     $trail->push('Pengembalian', route('admin.pengembalian.index'));
 });
+
+// Anggota Index
+Breadcrumbs::for('admin.anggota.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Anggota', route('admin.anggota.index'));
+});

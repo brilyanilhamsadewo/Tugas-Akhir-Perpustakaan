@@ -4,8 +4,8 @@
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Data User</h3>
-            <a href="{{ route('admin.user.create') }}" class="btn btn-primary">Tambah User</a>
-            <a href="{{ route('admin.user.trash') }}" class="btn btn-primary">Tong Sampah</a>
+            <a href="{{ route('admin.anggota.create') }}" class="btn btn-primary">Tambah User</a>
+            <a href="{{ route('admin.anggota.trash') }}" class="btn btn-primary">Tong Sampah</a>
         </div>
         
         <div class="box-body">
@@ -14,8 +14,10 @@
                 <thead>
                     <tr>
                         <th>Nomor</th>
+                        <th>NIS/NIG</th>
                         <th>Nama</th>
-                        <th>Email</th>
+                        <th>Tahun Masuk</th>
+                        <th>No Telepon</th>
                         {{-- <th>Email Terverifikasi</th> --}}
                         {{-- <th>password</th> --}}
                         <th>Aksi</th>

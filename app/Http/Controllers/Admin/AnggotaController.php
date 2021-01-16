@@ -14,7 +14,9 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.anggota.index', [
+            'title' => 'Data Anggota',
+        ]);
     }
 
     /**
@@ -81,5 +83,12 @@ class AnggotaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function trash()
+    {
+        $authors = Author::onlyTrashed()->get();
+
+        return view('admin.author.trash', compact('authors'));
     }
 }
