@@ -3,8 +3,8 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Data User</h3>
-            <a href="{{ route('admin.anggota.create') }}" class="btn btn-primary">Tambah User</a>
+            <h3 class="box-title">Data Anggota</h3>
+            <a href="{{ route('admin.anggota.create') }}" class="btn btn-primary">Tambah Anggota</a>
             <a href="{{ route('admin.anggota.trash') }}" class="btn btn-primary">Tong Sampah</a>
         </div>
         

@@ -9,7 +9,7 @@ class Anggota extends Model
 {
     //
     protected $tables = 'anggotas';
-    protected $guarded = [];
+    protected $guarded =[];
     use SoftDeletes;
 
     public function books()

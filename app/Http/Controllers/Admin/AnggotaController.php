@@ -41,7 +41,23 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nis_nig' => 'required|numeric',
+            'nama' => 'required|min:3',
+            'tahun_masuk' => 'required|numeric',
+            'jenis_kelamin' => 'required',
+            'no_telp' => 'required|numeric',
+        ]);
+
+        Anggota::create([
+            'nis/nig' => $request->nis_nig,
+            'nama' => $request->nama,
+            'tahun_masuk' => $request->tahun_masuk,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'no_telp' => $request->no_telp,
+        ]);
+
+        return redirect()->route('admin.anggota.index')->with('success','Data anggota berhasil ditambahkan');
     }
 
     /**

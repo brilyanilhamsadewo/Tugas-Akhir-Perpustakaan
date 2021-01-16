@@ -10,18 +10,18 @@
             <form action="{{ route('admin.anggota.store') }}" method="POST">
                 @csrf
 
-                <div class="form-group @error('nis/nig') has-error @enderror">
+                <div class="form-group @error('nis_nig') has-error @enderror">
                     <label for="">NIS / NIG</label>
-                    <input type="number" name="nis/nig" class="form-control" placeholder="Masukkan NIS / NIG" value="{{ old('nis/nig') }}">
-                    @error('nis/nig')
+                    <input type="number" name="nis_nig" class="form-control" placeholder="Masukkan NIS / NIG" value="{{ old('nis_nig') }}">
+                    @error('nis_nig')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <div class="form-group @error('name') has-error @enderror">
+                <div class="form-group @error('nama') has-error @enderror">
                     <label for="">Nama</label>
-                    <input type="text" name="name" class="form-control" placeholder="Masukkan nama anggota" value="{{ old('name') }}">
-                    @error('name')
+                    <input type="text" name="nama" class="form-control" placeholder="Masukkan nama anggota" value="{{ old('nama') }}">
+                    @error('nama')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>
@@ -42,6 +42,14 @@
                         <option value="P">Perempuan</option>
                     </select>
                     @error('jenis_kelamin')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group @error('no_telp') has-error @enderror">
+                    <label for="">No Telepon</label>
+                    <input type="text" name="no_telp" class="form-control" placeholder="Masukkan no telepon anggota" value="{{ old('no_telp') }}">
+                    @error('no_telp')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>
