@@ -3,13 +3,21 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Edit Data User</h3>
+            <h3 class="box-title">Edit Data Anggota</h3>
         </div>
 
         <div class="box-body">
             <form action="{{ route('admin.user.update', $user) }}" method="POST">
                 @csrf
                 @method("PUT")
+
+                <div class="form-group @error('nis_nig') has-error @enderror">
+                    <label for="">NIS / NIG</label>
+                    <input type="number" name="nis_nig" class="form-control" placeholder="Masukkan NIS / NIG anggota" value="{{ old('nis_nig') ?? $anggota->nis}}">
+                    @error('name')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
                 <div class="form-group @error('name') has-error @enderror">
                     <label for="">Nama</label>
                     <input type="text" name="name" class="form-control" placeholder="Masukkan nama user" value="{{ old('name') ?? $user->name}}">

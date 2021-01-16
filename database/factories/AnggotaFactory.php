@@ -18,7 +18,7 @@ $factory->define(Anggota::class, function (Faker $faker) {
         'nama' => $faker->name,
         'tahun_masuk' => '2018',
         'jenis_kelamin' => 'L',
-        'nis/nig' => $nis,
+        'nis_nig' => $nis,
         'no_telp' => $telp,
     ];
 });

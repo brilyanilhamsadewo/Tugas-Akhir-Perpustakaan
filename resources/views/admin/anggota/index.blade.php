@@ -54,7 +54,7 @@
                 ajax: '{{ route('admin.anggota.data') }}',
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
-                    { data: 'nis/nig'},
+                    { data: 'nis_nig'},
                     { data: 'nama'},
                     { data: 'tahun_masuk'},
                     { data: 'no_telp'},

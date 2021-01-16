@@ -77,9 +77,12 @@ class AnggotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Anggota $anggota)
     {
-        //
+        return view('admin.anggota.edit', [
+            'anngota' => $anggota,
+            'title' => 'Edit Anggota',
+            ]);
     }
 
     /**
