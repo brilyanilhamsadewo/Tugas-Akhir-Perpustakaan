@@ -8,6 +8,7 @@ use App\Book;
 use App\BorrowHistory;
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Member;
 use App\Penerbit;
 use App\PinjamHistori;
 use App\Rak;
@@ -112,12 +113,18 @@ class DataController extends Controller
                     ->addColumn('book_title', function(PinjamHistori $model) {
                         return $model->book->title;
                     })
+                    ->addColumn('issn', function(PinjamHistori $model) {
+                        return $model->book->issn;
+                    })
+                    ->addColumn('penerbit', function(PinjamHistori $model) {
+                        return $model->book->penerbit->nama_penerbit;
+                    })
                     ->addColumn('nama_admin', function(PinjamHistori $model) {
                         return $model->user->name;
                     })
-                    ->addColumn('action', 'admin.borrow.action')
+                    // ->addColumn('action', 'admin.borrow.action')
                     ->addIndexColumn()
-                    ->rawColumns(['action'])
+                    // ->rawColumns(['action'])
                     ->toJson(); 
     }
 
@@ -151,12 +158,34 @@ class DataController extends Controller
             ->toJson();
     }
 
-    public function anggotas()
+    public function kembali()
     {
-        $anggotas = Anggota::orderBy('nama', 'ASC');
+        $borrows = PinjamHistori::isBorrowed()->latest()->get();
 
-        return datatables()->of($anggotas)
-            ->addColumn('action', 'admin.anggota.action')
+        $borrows->load('user','book');
+
+        return datatables()->of($borrows)
+                    ->addColumn('user', function(PinjamHistori $model) {
+                        return $model->user->name;
+                    })
+                    ->addColumn('book_title', function(PinjamHistori $model) {
+                        return $model->book->title;
+                    })
+                    ->addColumn('nama_admin', function(PinjamHistori $model) {
+                        return $model->user->name;
+                    })
+                    ->addColumn('action', 'admin.pengembalian.modal')
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->toJson(); 
+    }
+
+    public function members()
+    {
+        $members = Member::orderBy('nis_nip', 'ASC');
+
+        return datatables()->of($members)
+            ->addColumn('action', 'admin.member.action')
             ->addIndexColumn()
             ->rawColumns(['action'])
             ->toJson();

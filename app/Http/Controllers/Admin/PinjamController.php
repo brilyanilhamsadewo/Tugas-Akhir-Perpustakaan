@@ -8,6 +8,8 @@ use App\Author;
 use App\Book;
 use App\PinjamHistori;
 use App\User;
+use Carbon\Carbon;
+use Illuminate\Support\Carbon as SupportCarbon;
 
 class PinjamController extends Controller
 {
@@ -34,19 +36,21 @@ class PinjamController extends Controller
         $this->validate($request, [
             'user_id' => 'required',
             'book_id' => 'required',
-            'tanggal_pinjam' => 'required',
-            'tanggal_kembali' => 'required',
+            // 'tanggal_pinjam' => 'required',
+            // 'tanggal_kembali' => 'required',
             // 'admin_id' => auth()->id(),
             // 'qty' => 'required|numeric',
         ]);
 
         $admin = auth()->id();
+        $tanggal_pinjam = Carbon::today();
+        $tanggal_kembali = Carbon::today()->addDays(7);
 
         PinjamHistori::create([
             'user_id' => $request->user_id,
             'book_id' => $request->book_id,
-            'tanggal_pinjam' => $request->tanggal_pinjam,
-            'tanggal_kembali' => $request->tanggal_kembali,
+            'tanggal_pinjam' => $tanggal_pinjam,
+            'tanggal_kembali' => $tanggal_kembali,
             'admin_id' => $admin,
             'status_pinjam' => 0,
             

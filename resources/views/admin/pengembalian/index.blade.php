@@ -48,7 +48,7 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.pinjam.data') }}',
+                ajax: '{{ route('admin.kembali.data') }}',
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'user'},

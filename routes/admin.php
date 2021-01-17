@@ -4,6 +4,7 @@ use App\Anggota;
 use App\Author;
 use App\Book;
 use App\Category;
+use App\Member;
 use App\Penerbit;
 use App\Rak;
 use App\User;
@@ -18,6 +19,7 @@ Route::get('/', 'HomeController@index')->name('dashboard');
 // Route::delete('/author/{author}', 'AuthorController@destroy')->name('author.destroy');
 
 Route::get('/author/data', 'DataController@authors')->name('author.data');
+Route::get('/member/data', 'DataController@members')->name('member.data');
 Route::get('/category/data', 'DataController@categories')->name('categories.data');
 Route::get('/penerbit/data', 'DataController@penerbit')->name('penerbit.data');
 Route::get('/rak/data', 'DataController@rak')->name('rak.data');
@@ -26,7 +28,7 @@ Route::get('/borrow/data', 'DataController@borrows')->name('borrow.data');
 Route::get('/pinjam/data', 'DataController@pinjam')->name('pinjam.data');
 Route::get('/historyborrow/data', 'DataController@historyborrow')->name('historyborrow.data');
 Route::get('/user/data', 'DataController@users')->name('user.data');
-Route::get('/anggota/data', 'DataController@anggotas')->name('anggota.data');
+Route::get('/kembali/data', 'DataController@kembali')->name('kembali.data');
 
 Route::get('/author/trash','AuthorController@trash')->name('author.trash');
 Route::get('/author/restore/{author}','AuthorController@restore')->name('author.restore');
@@ -35,6 +37,14 @@ Route::bind('author', function($id) {
 });
 Route::get('/author/delete/{author}','AuthorController@delete')->name('author.delete');
 Route::resource('author', 'AuthorController');
+
+Route::get('/member/trash','MemberController@trash')->name('member.trash');
+Route::get('/member/restore/{member}','MemberController@restore')->name('member.restore');
+Route::bind('member', function($id) {
+    return Member::withTrashed()->find($id);
+});
+Route::get('/member/delete/{member}','MemberController@delete')->name('member.delete');
+Route::resource('member', 'MemberController');
 
 Route::get('/book/trash','BookController@trash')->name('book.trash');
 Route::get('/book/restore/{book}','BookController@restore')->name('book.restore');
@@ -99,12 +109,3 @@ Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
 Route::resource('pengembalian', 'PengembalianController');
-
-
-Route::get('/anggota/trash','AnggotaController@trash')->name('anggota.trash');
-Route::get('/anggota/restore/{anggota}','AnggotaController@restore')->name('anggota.restore');
-Route::bind('anggota', function($id) {
-    return Anggota::withTrashed()->find($id);
-});
-Route::get('/anggota/delete/{anggota}','AnggotaController@delete')->name('anggota.delete');
-Route::resource('anggota', 'AnggotaController');

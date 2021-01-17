@@ -3,9 +3,9 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Data anggota</h3>
-            <a href="{{ route('admin.anggota.create') }}" class="btn btn-primary">Tambah Penulis</a>
-            <a href="{{ route('admin.anggota.trash') }}" class="btn btn-primary">Tong Sampah</a>
+            <h3 class="box-title">Data Anggota</h3>
+            <a href="{{ route('admin.member.create') }}" class="btn btn-primary">Tambah Anggota</a>
+            <a href="{{ route('admin.member.trash') }}" class="btn btn-primary">Tong Sampah</a>
         </div>
         
         <div class="box-body">
@@ -14,11 +14,12 @@
                 <thead>
                     <tr>
                         <th>Nomor</th>
-                        <th>NIS / NIG</th>
+                        <th>NIS / NIP</th>
                         <th>Nama</th>
-                        <th>Tahun Masuk</th>
-                        <th>No Telepon</th>
                         <th>Jenis Kelamin</th>
+                        <th>No Telepon</th>
+                        <th>Email</th>
+                        <th>Alamat</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -49,14 +50,15 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.anggota.data') }}',
+                ajax: '{{ route('admin.member.data') }}',
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
-                    { data: 'nis_nig'},
-                    { data: 'nama'},
-                    { data: 'tahun_masuk'},
-                    { data: 'no_telp'},
+                    { data: 'nis_nip'},
+                    { data: 'nama_member'},
                     { data: 'jenis_kelamin'},
+                    { data: 'no_telp_member'},
+                    { data: 'email_member'},
+                    { data: 'alamat_member'},
                     { data: 'action'}
                 ]
             });

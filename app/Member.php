@@ -5,13 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Anggota extends Model
+class Member extends Model
 {
     use SoftDeletes;
-    protected $table = 'anggotas';
-    protected $guarded = [];
+    protected $guarded =[];
 
-    public function pinjam_historys()
+    public function pinjamhistorys()
     {
         return $this->hasMany(PinjamHistori::class); 
     }

@@ -9,7 +9,6 @@
         <li><a href="{{ route('admin.penerbit.index') }}"><i class="fa fa-book"></i> <span>Penerbit</span></a></li>
         <li><a href="{{ route('admin.rak.index') }}"><i class="fa fa-book"></i> <span>Rak</span></a></li>
         <li><a href="{{ route('admin.book.index') }}"><i class="fa fa-book"></i> <span>Buku</span></a></li>
-        <li><a href="{{ route('admin.anggota.index') }}"><i class="fa fa-book"></i> <span>Anggota</span></a></li>
         {{-- <li><a href="{{ route('admin.borrowing.index') }}"><i class="fa fa-book"></i> <span>Pinjam Buku</span></a></li> --}}
         {{-- <li><a href="{{ route('admin.borrow.index') }}"><i class="fa fa-book"></i> <span>Buku Sedang Dipinjam</span></a></li> --}}
         <li><a href="{{ route('admin.pinjam.index') }}"><i class="fa fa-book"></i> <span>Peminjaman V2</span></a></li>
@@ -42,6 +41,8 @@
             <li><a href="{{ route('admin.report.top-user') }}"><i class="fa fa-circle-o"></i>Role Permission</a></li>
           </ul>
         </li>
+
+        <li><a href="{{ route('admin.member.index') }}"><i class="fa fa-user"></i> <span>Anggota </span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -32,13 +32,13 @@
                     @enderror
                 </div>
 
-                <div class="form-group @error('tanggal_pinjam') has-error @enderror">
+                {{-- <div class="form-group @error('tanggal_pinjam') has-error @enderror">
                     <label for="">Tanggal Pinjam</label>
                     <input type="date" name="tanggal_pinjam" class="form-control" placeholder="Masukkan Tanggal Pinjam" value="{{ old('tanggal_pinjam') }}">
                     @error('tanggal_pinjam')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
-                </div>
+                </div> --}}
 
                 {{-- <div class="form-group">
                     <label for="tahun_terbit">Tanggal Pinjam</label>

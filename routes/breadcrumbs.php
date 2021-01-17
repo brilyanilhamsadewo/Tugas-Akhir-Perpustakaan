@@ -250,3 +250,31 @@ Breadcrumbs::for('admin.anggota.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
     $trail->push('Anggota', route('admin.anggota.index'));
 });
+
+
+// Book Index
+Breadcrumbs::for('admin.member.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Anggota', route('admin.member.index'));
+});
+
+// member Create
+Breadcrumbs::for('admin.member.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Anggota', route('admin.member.index'));
+    $trail->push('Tambah Anggota', route('admin.member.create'));
+});
+
+// member Edit
+Breadcrumbs::for('admin.member.edit', function ($trail, $member) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Anggota', route('admin.member.index'));
+    $trail->push('Edit Anggota', route('admin.member.edit', $member));
+});
+
+// member Trash
+Breadcrumbs::for('admin.member.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Anggota', route('admin.member.index'));
+    $trail->push('Trash Anggota', route('admin.member.trash'));
+});

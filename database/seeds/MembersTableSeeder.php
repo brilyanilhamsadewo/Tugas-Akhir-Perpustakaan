@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AnggotaTableSeeder extends Seeder
+class MembersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class AnggotaTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Anggota::class, 50)->create();
+        factory(App\Member::class, 10)->create();
     }
 }

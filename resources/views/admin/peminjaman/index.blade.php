@@ -5,7 +5,7 @@
     <div class="box-header">
         <h3 class="box-title">Data Peminjaman Buku</h3>
         <a href="{{ route('admin.pinjam.create')}}" class="btn btn-primary">Tambah Peminjaman</a>
-        <a href="#" class="btn btn-primary">History Peminjaman</a>
+        {{-- <a href="#" class="btn btn-primary">History Peminjaman</a> --}}
     </div>
 
     <div class="box-body">
@@ -16,10 +16,12 @@
                     <th>No</th>
                     <th>Nama Peminjam</th>
                     <th>Judul Buku</th>
+                    <th>ISSN</th>
+                    <th>Penerbit</th>
                     <th>Nama Petugas</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Kembali</th>
-                    <th>Aksi</th>
+                    {{-- <th>Aksi</th> --}}
                     {{-- <th>Denda</th> --}}
                 </tr>
             </thead>
@@ -53,10 +55,12 @@
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'user'},
                     { data: 'book_title'},
+                    { data: 'issn'},
+                    { data: 'penerbit'},
                     { data: 'nama_admin'},
                     { data: 'tanggal_pinjam'},
                     { data: 'tanggal_kembali'},
-                    { data: 'action'},
+                    // { data: 'action'},
                     // { data: '#'}
                 ]
             });

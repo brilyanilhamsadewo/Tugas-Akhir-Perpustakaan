@@ -15,11 +15,6 @@ class PinjamHistori extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function anggotas()
-    {
-        return $this->belongsTo(Anggota::class);
-    }
-
     public function admin()
     {
         return $this->belongsTo(User::class, 'id', 'admin_id');
@@ -28,6 +23,16 @@ class PinjamHistori extends Model
     public function book()
     {
         return $this->belongsTo(Book::class);
+    }
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
+
+    public function penerbit()
+    {
+        return $this->belongsTo(Penerbit::class);
     }
 
     public function scopeIsBorrowed($query)
