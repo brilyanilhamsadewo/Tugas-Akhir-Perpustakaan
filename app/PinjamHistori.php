@@ -15,6 +15,11 @@ class PinjamHistori extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function anggotas()
+    {
+        return $this->belongsTo(Anggota::class);
+    }
+
     public function admin()
     {
         return $this->belongsTo(User::class, 'id', 'admin_id');

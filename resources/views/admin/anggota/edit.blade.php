@@ -3,33 +3,17 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Edit Data Anggota</h3>
+            <h3 class="box-title">Edit Data Penulis</h3>
         </div>
 
         <div class="box-body">
-            <form action="{{ route('admin.user.update', $user) }}" method="POST">
+            <form action="{{ route('admin.author.update', $author) }}" method="POST">
                 @csrf
                 @method("PUT")
-
-                <div class="form-group @error('nis_nig') has-error @enderror">
-                    <label for="">NIS / NIG</label>
-                    <input type="number" name="nis_nig" class="form-control" placeholder="Masukkan NIS / NIG anggota" value="{{ old('nis_nig') ?? $anggota->nis}}">
-                    @error('name')
-                        <span class="help-block">{{ $message }}</span>
-                    @enderror
-                </div>
                 <div class="form-group @error('name') has-error @enderror">
                     <label for="">Nama</label>
-                    <input type="text" name="name" class="form-control" placeholder="Masukkan nama user" value="{{ old('name') ?? $user->name}}">
+                    <input type="text" name="name" class="form-control" placeholder="Masukkan nama penulis" value="{{ old('name') ?? $author->name}}">
                     @error('name')
-                        <span class="help-block">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="form-group @error('email') has-error @enderror">
-                    <label for="">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Masukkan email user" value="{{ old('email') ?? $user->email}}">
-                    @error('email')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>

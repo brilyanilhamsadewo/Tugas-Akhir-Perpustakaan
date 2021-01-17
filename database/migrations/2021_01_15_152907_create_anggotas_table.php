@@ -17,8 +17,10 @@ class CreateAnggotasTable extends Migration
             $table->bigIncrements('id');
             $table->string('nis_nig');
             $table->string('nama');
+            $table->string('tahun_masuk');
             $table->string('jenis_kelamin');
             $table->string('no_telp');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

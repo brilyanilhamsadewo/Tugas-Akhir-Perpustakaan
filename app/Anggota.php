@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Anggota extends Model
 {
-    //
-    protected $tables = 'anggotas';
-    protected $guarded =[];
     use SoftDeletes;
+    protected $table = 'anggotas';
+    protected $guarded = [];
 
-    public function books()
+    public function pinjam_historys()
     {
-        return $this->hasMany(Book::class); 
+        return $this->hasMany(PinjamHistori::class); 
     }
 }

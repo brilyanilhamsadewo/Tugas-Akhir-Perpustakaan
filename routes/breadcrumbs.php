@@ -197,6 +197,12 @@ Breadcrumbs::for('admin.user.trash', function ($trail) {
     $trail->push('Trash User', route('admin.user.trash'));
 });
 
+// Anggota Trash
+Breadcrumbs::for('admin.anggota.trash', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Anggota', route('admin.anggota.index'));
+    $trail->push('Trash Anggota', route('admin.anggota.trash'));
+});
 
 //pinjam v2
 // Pinjam Index

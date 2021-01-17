@@ -3,8 +3,8 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Data Anggota</h3>
-            <a href="{{ route('admin.anggota.create') }}" class="btn btn-primary">Tambah Anggota</a>
+            <h3 class="box-title">Data anggota</h3>
+            <a href="{{ route('admin.anggota.create') }}" class="btn btn-primary">Tambah Penulis</a>
             <a href="{{ route('admin.anggota.trash') }}" class="btn btn-primary">Tong Sampah</a>
         </div>
         
@@ -14,13 +14,11 @@
                 <thead>
                     <tr>
                         <th>Nomor</th>
-                        <th>NIS/NIG</th>
+                        <th>NIS / NIG</th>
                         <th>Nama</th>
                         <th>Tahun Masuk</th>
                         <th>No Telepon</th>
                         <th>Jenis Kelamin</th>
-                        {{-- <th>Email Terverifikasi</th> --}}
-                        {{-- <th>password</th> --}}
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -59,8 +57,6 @@
                     { data: 'tahun_masuk'},
                     { data: 'no_telp'},
                     { data: 'jenis_kelamin'},
-                    // { data: 'email_verified_at'},
-                    // { data: 'password'},
                     { data: 'action'}
                 ]
             });
