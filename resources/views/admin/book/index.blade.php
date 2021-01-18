@@ -15,6 +15,8 @@
                 <tr>
                     <th>Nomor</th>
                     <th>Judul</th>
+                    <th>Penerbit</th>
+                    <th>Rak</th>
                     <th>ISSN</th>
                     <th>Deskripsi</th>
                     <th>Jumlah Buku</th>
@@ -54,6 +56,8 @@
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'title'},
+                    { data: 'penerbit'},
+                    { data: 'rak'},
                     { data: 'issn'},
                     { data: 'description'},
                     { data: 'qty'},

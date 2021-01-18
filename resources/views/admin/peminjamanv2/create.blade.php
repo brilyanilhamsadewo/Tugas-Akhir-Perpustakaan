@@ -7,7 +7,7 @@
         </div>
 
         <div class="box-body">
-            <form action="{{ route('admin.pinjam.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.peminjaman.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group @error('member_id') has-error @enderror">

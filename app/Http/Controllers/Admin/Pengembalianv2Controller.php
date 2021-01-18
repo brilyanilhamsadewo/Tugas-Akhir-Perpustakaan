@@ -10,10 +10,9 @@ use App\PinjamHistori;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;//query builder
-use DateTime;
+use Illuminate\Support\Facades\DB;
 
-class PengembalianController extends Controller
+class Pengembalianv2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,23 +21,11 @@ class PengembalianController extends Controller
      */
     public function index()
     {
-        // return view('admin.pengembalian.index', [
-        //     'title' => 'Data Buku yang dipinjam',
-        // ]);
         $peminjaman = PinjamHistori::where('status_pinjam', '=', 0)->paginate(10);
-        // $member = Member::all();
-        $user = Member::all();
+        $member = Member::all();
+        $user = User::all();
         $book = Book::all();
-        
-        // $fdate = DB::table('peminjamans')->find($id)->tanggal_pinjam;
-        // $tdate = now();
-        // $interval = $fdate->diff($tdate);
-        // $days = $interval->format('%a');
-        // $denda = $days*1000;
-
-
-        // return view('admin.peminjaman.peminjaman', ['peminjaman' => $peminjaman]);
-        return view('admin.pengembalian.index',compact('user','book','peminjaman'));
+        return view('admin.pengembalianv2.index',compact('user','member','book','peminjaman'));
     }
 
     /**
@@ -81,10 +68,11 @@ class PengembalianController extends Controller
      */
     public function edit($id)
     {
-        // mengambil data petugas berdasarkan id yang dipilih
+         // mengambil data petugas berdasarkan id yang dipilih
 		$pinjam = DB::table('peminjamans')->where('id',$id)->get();
         // $member = DB::table('members')->pluck("nama_member","id");
         $user_id = PinjamHistori::find($id)->user_id;
+        $nis_nip = PinjamHistori::find($id)->member->nis_nip;
         $peminjam_buku = PinjamHistori::find($id)->member->nama_member;
         $judul_buku = PinjamHistori::find($id)->book->title;
         $tanggal_pinjam = PinjamHistori::find($id)->tanggal_pinjam;;
@@ -106,7 +94,7 @@ class PengembalianController extends Controller
         }
         // $diff_in_days = Carbon::parse($end)->diffInDays($start);
         $denda = $diff_in_days*1000;
-		return view('admin.pengembalian.kembalikan',['pinjam' => $pinjam],compact('judul_buku','peminjam_buku','user_id','tanggal_pinjam','tanggal_kembali','tanggal_kembali_aktual','denda'));
+		return view('admin.pengembalianv2.kembalikan',['pinjam' => $pinjam],compact('judul_buku','peminjam_buku','user_id','tanggal_pinjam','tanggal_kembali','tanggal_kembali_aktual','denda','nis_nip'));
 		// passing data petugas yang didapat ke view 
 		// return view('admin.buku.edit_buku',['buku' => $buku]);
     }
@@ -135,14 +123,6 @@ class PengembalianController extends Controller
     }
 
     public function simpan_pengembalian(Request $request, $id){
-        // $this->validate($request,[
-        //     // 'ID_PEMINJAMAN' => 'required',
-    	// 	'ID_ANGGOTA' => 'required',
-        //     'ID_BUKU' => 'required',
-        //     'ID_PETUGAS' => 'required',
-        //     'TANGGAL_PINJAM' => 'required',
-        //     'TANGGAL_KEMBALI' => 'required'
-    	// ]);
         $now = now();
         $peminjaman = PinjamHistori::find($id);
         $peminjaman->status_pinjam = 1;
@@ -166,16 +146,16 @@ class PengembalianController extends Controller
         ]);
         
         
-        return redirect()->route('admin.pengembalian.index')->withSuccess('Pengembalian Sukses');
+        return redirect()->route('admin.pengembalianv2.index')->withSuccess('Pengembalian Sukses');
         // return redirect('admin.pengembalian.index');//notifikasi
     }
 
-    public function loadData_buku(Request $request)
+    public function history()
     {
-        if ($request->has('q')) {
-            $cari = $request->q;
-            $data = DB::table('books')->select('id', 'title')->where('title', 'like',"%".$cari."%")->get();
-            return response()->json($data);
-        }
-	}
+        $peminjaman = PinjamHistori::where('status_pinjam', '=', 1)->paginate(10);
+        $member = Member::all();
+        $user = User::all();
+        $book = Book::all();
+        return view('admin.pengembalianv2.history',compact('user','member','book','peminjaman'));
+    }
 }

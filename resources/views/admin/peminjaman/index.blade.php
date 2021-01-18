@@ -16,8 +16,8 @@
                     <th>No</th>
                     <th>Nama Peminjam</th>
                     <th>Judul Buku</th>
-                    <th>ISSN</th>
-                    <th>Penerbit</th>
+                    {{-- <th>ISSN</th>
+                    <th>Penerbit</th> --}}
                     <th>Nama Petugas</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Kembali</th>
@@ -50,13 +50,13 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.pinjam.data') }}',
+                ajax: '{{ route('admin.pinjaman.data') }}',
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable : false},
                     { data: 'user'},
                     { data: 'book_title'},
-                    { data: 'issn'},
-                    { data: 'penerbit'},
+                    // { data: 'issn'},
+                    // { data: 'penerbit'},
                     { data: 'nama_admin'},
                     { data: 'tanggal_pinjam'},
                     { data: 'tanggal_kembali'},

@@ -258,11 +258,31 @@ Breadcrumbs::for('admin.member.index', function ($trail) {
     $trail->push('Anggota', route('admin.member.index'));
 });
 
+// Peminjaman Index
+Breadcrumbs::for('admin.peminjaman.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Peminjaman', route('admin.peminjaman.index'));
+});
+
+// Pengembalian Index
+Breadcrumbs::for('admin.pengembalianv2.index', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Pengembalian', route('admin.pengembalianv2.index'));
+});
+
+
 // member Create
 Breadcrumbs::for('admin.member.create', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
     $trail->push('Anggota', route('admin.member.index'));
     $trail->push('Tambah Anggota', route('admin.member.create'));
+});
+
+// Peminjaman Create
+Breadcrumbs::for('admin.peminjaman.create', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Peminjaman', route('admin.peminjaman.index'));
+    $trail->push('Tambah Peminjaman', route('admin.peminjaman.create'));
 });
 
 // member Edit
@@ -277,4 +297,25 @@ Breadcrumbs::for('admin.member.trash', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
     $trail->push('Anggota', route('admin.member.index'));
     $trail->push('Trash Anggota', route('admin.member.trash'));
+});
+
+// Pengembalian Edit
+Breadcrumbs::for('admin.pengembalian.edit', function ($trail, $id) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Pengembalian', route('admin.pengembalian.index'));
+    $trail->push('Kembalikan Buku', route('admin.pengembalian.edit', $id));
+});
+
+// Pengembalian History
+Breadcrumbs::for('admin.pengembalianv2.history', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Pengembalian', route('admin.pengembalianv2.index'));
+    $trail->push('History Pengembalian Buku', route('admin.pengembalianv2.history'));
+});
+
+// Pengembalianv2 Edit
+Breadcrumbs::for('admin.pengembalianv2.edit', function ($trail, $id) {
+    $trail->push('Beranda', route('admin.dashboard'));
+    $trail->push('Pengembalian', route('admin.pengembalianv2.index'));
+    $trail->push('Kembalikan Buku', route('admin.pengembalianv2.edit', $id));
 });

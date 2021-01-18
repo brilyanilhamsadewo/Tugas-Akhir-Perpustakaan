@@ -18,7 +18,9 @@ Route::get('/', 'HomeController@index')->name('dashboard');
 // Route::put('/author/{author}', 'AuthorController@update')->name('author.update');
 // Route::delete('/author/{author}', 'AuthorController@destroy')->name('author.destroy');
 
+Route::get('/peminjaman/data', 'DataController@peminjaman')->name('peminjaman.data');
 Route::get('/author/data', 'DataController@authors')->name('author.data');
+Route::get('/pinjaman/data', 'DataController@pinjaman')->name('pinjaman.data');
 Route::get('/member/data', 'DataController@members')->name('member.data');
 Route::get('/category/data', 'DataController@categories')->name('categories.data');
 Route::get('/penerbit/data', 'DataController@penerbit')->name('penerbit.data');
@@ -61,11 +63,13 @@ Route::post('/borrow/store','BorrowController@store')->name('borrow.store');
 Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name('borrow.return');
 
 
-Route::get('/pinjam','PinjamController@index')->name('pinjam.index');
+// Route::get('/pinjam','PinjamController@index')->name('pinjam.index');
 Route::get('/borrow/history','BorrowController@history')->name('borrow.history');
-Route::get('/pinjam/create','PinjamController@create')->name('pinjam.create');
-Route::post('/pinjam/store','PinjamController@store')->name('pinjam.store');
+// Route::get('/pinjam/create','PinjamController@create')->name('pinjam.create');
+// Route::post('/pinjam/store','PinjamController@store')->name('pinjam.store');
 Route::put('borrow/{borrowHistory}/return', 'BorrowController@returnBook')->name('borrow.return');
+Route::resource('pinjam', 'PinjamController');
+Route::get('pinjam/modal/{PinjamHistori}', 'PinjamController@modal')->name('pinjam.modal');
 
 
 Route::get('/report/top-user','ReportController@topUser')->name('report.top-user');
@@ -108,4 +112,13 @@ Route::get('/user/delete/{user}','UserController@delete')->name('user.delete');
 Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
+
+Route::get('/pengembalian/simpan_pengembalian/{id}', 'PengembalianController@simpan_pengembalian');
+Route::get('/pengembalian/kembalikan/{id}', 'PengembalianController@edit')->name('pengembalian.edit');
 Route::resource('pengembalian', 'PengembalianController');
+
+Route::resource('peminjaman', 'PeminjamanController');
+Route::get('/pengembalianv2/history', 'Pengembalianv2Controller@history')->name('pengembalianv2.history');
+Route::get('/pengembalianv2/kembalikan/{id}', 'Pengembalianv2Controller@edit')->name('pengembalianv2.edit');
+Route::get('/pengembalianv2/simpan_pengembalian/{id}', 'Pengembalianv2Controller@simpan_pengembalian');
+Route::resource('pengembalianv2', 'Pengembalianv2Controller');

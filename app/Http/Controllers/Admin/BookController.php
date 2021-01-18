@@ -101,6 +101,8 @@ class BookController extends Controller
             'title' => 'Ubah Data Buku',
             'book' => $book,
             'authors' => Author::orderBy('name', 'ASC')->get(),
+            'penerbits' => Penerbit::orderBy('nama_penerbit','ASC')->get(),
+            'raks' => Rak::orderBy('lokasi_rak','ASC')->get(),
         ]);
     }
 

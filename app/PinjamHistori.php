@@ -34,6 +34,21 @@ class PinjamHistori extends Model
     {
         return $this->belongsTo(Penerbit::class);
     }
+    
+    public function rak()
+    {
+        return $this->belongsTo(Rak::class);
+    }
+
+    public function pengembalian()
+    {
+        return $this->belongsTo(Pengembalian::class);
+    }
+
+    public function pengembalians()
+    {
+        return $this->hasMany(Pengembalian::class); 
+    }
 
     public function scopeIsBorrowed($query)
     {

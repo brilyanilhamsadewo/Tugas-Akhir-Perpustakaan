@@ -34,7 +34,7 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>{{ $users }}</h3>
-                            <p>Users</p>
+                            <p>Anggota</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>

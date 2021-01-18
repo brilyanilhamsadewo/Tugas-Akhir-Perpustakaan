@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Author;
 use App\Book;
+use App\Member;
 use App\PinjamHistori;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
+use Illuminate\Support\Facades\DB;//query builder
 
 class PinjamController extends Controller
 {
@@ -27,14 +29,14 @@ class PinjamController extends Controller
             'title' => 'Tambah Peminjaman',
             'authors' => Author::orderBy('name', 'ASC')->get(),
             'books' => Book::orderBy('title', 'ASC')->get(),
-            'users' => User::orderBy('name', 'ASC')->get(),
+            'members' => Member::orderBy('nama_member', 'ASC')->get(),
         ]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'required',
+            'member_id' => 'required',
             'book_id' => 'required',
             // 'tanggal_pinjam' => 'required',
             // 'tanggal_kembali' => 'required',
@@ -43,11 +45,14 @@ class PinjamController extends Controller
         ]);
 
         $admin = auth()->id();
-        $tanggal_pinjam = Carbon::today();
-        $tanggal_kembali = Carbon::today()->addDays(7);
+        // $tanggal_pinjam = Carbon::today();
+        $tanggal_pinjam = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', today());
+        // $tanggal_kembali = Carbon::today()->addDays(7);
+        $tanggal_kembali = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', today()->addDays(7));
+        // DB::table('books')->where('id',$request->book_id)->decrement('qty');
 
         PinjamHistori::create([
-            'user_id' => $request->user_id,
+            'member_id' => $request->member_id,
             'book_id' => $request->book_id,
             'tanggal_pinjam' => $tanggal_pinjam,
             'tanggal_kembali' => $tanggal_kembali,
@@ -59,6 +64,16 @@ class PinjamController extends Controller
             // 'created_at' => $request->now(),
         ]);
 
+        DB::table('books')->where('id',$request->book_id)->decrement('qty');
+
         return redirect()->route('admin.pinjam.index')->withSuccess('Data Peminjaman Berhasil Ditambahkan');
     }
+
+    // public function modal(PinjamHistori $pinjam)
+    // {
+    //     return view('admin.pengembalian.modal', [
+    //         'pinjam' => $pinjam,
+    //         'title' => 'Pengembalian Buku',
+    //         ]);
+    // }
 }

@@ -54,6 +54,44 @@
                     @enderror
                 </div>
 
+                <div class="form-group @error('penerbit_id') has-error @enderror">
+                    <label for="">Penerbit</label>
+                    <select name="penerbit_id" id="" class="form-control select2">
+                        @foreach ($penerbits as $penerbit)
+                            <option 
+                                value="{{ $penerbit->id }}"
+                                @if ($penerbit->id === $book->penerbit_id)
+                                    selected
+                                @endif
+                                >
+                                {{ $penerbit->nama_penerbit }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('penerbit_id')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group @error('rak_id') has-error @enderror">
+                    <label for="">Rak</label>
+                    <select name="rak_id" id="" class="form-control select2">
+                        @foreach ($raks as $rak)
+                            <option 
+                                value="{{ $rak->id }}"
+                                @if ($rak->id === $book->rak_id)
+                                    selected
+                                @endif
+                                >
+                                {{ $rak->lokasi_rak }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('rak_id')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="form-group @error('cover') has-error @enderror">
                     <label for="">Sampul</label>
                     <input type="file" name="cover" class="form-control">

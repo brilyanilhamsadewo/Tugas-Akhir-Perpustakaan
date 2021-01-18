@@ -11,8 +11,10 @@
         <li><a href="{{ route('admin.book.index') }}"><i class="fa fa-book"></i> <span>Buku</span></a></li>
         {{-- <li><a href="{{ route('admin.borrowing.index') }}"><i class="fa fa-book"></i> <span>Pinjam Buku</span></a></li> --}}
         {{-- <li><a href="{{ route('admin.borrow.index') }}"><i class="fa fa-book"></i> <span>Buku Sedang Dipinjam</span></a></li> --}}
-        <li><a href="{{ route('admin.pinjam.index') }}"><i class="fa fa-book"></i> <span>Peminjaman V2</span></a></li>
-        <li><a href="{{ route('admin.pengembalian.index') }}"><i class="fa fa-book"></i> <span>Pengembalian V2</span></a></li>
+        {{-- <li><a href="{{ route('admin.pinjam.index') }}"><i class="fa fa-book"></i> <span>Peminjaman V2</span></a></li> --}}
+        <li><a href="{{ route('admin.peminjaman.index') }}"><i class="fa fa-book"></i> <span>Peminjaman V3</span></a></li>
+        <li><a href="{{ route('admin.pengembalianv2.index') }}"><i class="fa fa-book"></i> <span>Pengembalian V3</span></a></li>
+        {{-- <li><a href="{{ route('admin.pengembalian.index') }}"><i class="fa fa-book"></i> <span>Pengembalian V2</span></a></li> --}}
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -37,8 +39,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('admin.user.index') }}"><i class="fa fa-circle-o"></i>Daftar User</a></li>
-            <li><a href="{{ route('admin.role.index') }}"><i class="fa fa-circle-o"></i>Role</a></li>
-            <li><a href="{{ route('admin.report.top-user') }}"><i class="fa fa-circle-o"></i>Role Permission</a></li>
+            {{-- <li><a href="{{ route('admin.role.index') }}"><i class="fa fa-circle-o"></i>Role</a></li> --}}
+            {{-- <li><a href="{{ route('admin.report.top-user') }}"><i class="fa fa-circle-o"></i>Role Permission</a></li> --}}
           </ul>
         </li>
 
