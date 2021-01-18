@@ -6,7 +6,7 @@
           <ul class="right hide-on-med-and-down">
             @guest
               <li><a href="{{ route('login') }}">Login</a></li>
-              <li><a href="{{ route('register') }}">Register</a></li>
+              {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
               @else
               <ul class="dropdown-content" id="dropdown1">
                 <li>
