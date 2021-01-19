@@ -54,6 +54,25 @@
                     @enderror
                 </div>
 
+                <div class="form-group @error('category_id') has-error @enderror">
+                    <label for="">Kategori</label>
+                    <select name="category_id" id="" class="form-control select2">
+                        @foreach ($categories as $category)
+                            <option 
+                                value="{{ $category->id }}"
+                                @if ($category->id === $book->category_id)
+                                    selected
+                                @endif
+                                >
+                                {{ $category->categories_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="form-group @error('penerbit_id') has-error @enderror">
                     <label for="">Penerbit</label>
                     <select name="penerbit_id" id="" class="form-control select2">

@@ -76,7 +76,7 @@ class DataController extends Controller
                         return $model->penerbit->nama_penerbit;
                     })
                     ->addColumn('rak', function(Book $model) {
-                        return $model->rak->name;
+                        return $model->rak->lokasi_rak;
                     })
                     ->editColumn('cover', function(Book $model) {
                         return '<img src="'. $model->getCover() .'" height="150px" >';

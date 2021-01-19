@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Author;
 use App\Book;
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Penerbit;
 use App\Rak;
@@ -34,6 +35,7 @@ class BookController extends Controller
         return view('admin.book.create', [
             'title' => 'Tambah Buku',
             'authors' => Author::orderBy('name', 'ASC')->get(),
+            'categories' => Category::orderBy('categories_name', 'ASC')->get(),
             'penerbits' => Penerbit::orderBy('nama_penerbit', 'ASC')->get(),
             'raks' => Rak::orderBy('lokasi_rak', 'ASC')->get(),
         ]);
@@ -52,6 +54,7 @@ class BookController extends Controller
             'issn' => 'required|numeric|min:10',
             'description' => 'required|min:20',
             'author_id' => 'required',
+            'category_id' => 'required',
             'penerbit_id' => 'required',
             'rak_id' => 'required',
             'cover' => 'file|image',
@@ -69,6 +72,7 @@ class BookController extends Controller
             'issn' => $request->issn,
             'description' => $request->description,
             'author_id' => $request->author_id,
+            'category_id' => $request->category_id,
             'penerbit_id' => $request->penerbit_id,
             'rak_id' => $request->rak_id,
             'cover' => $cover,
@@ -101,6 +105,7 @@ class BookController extends Controller
             'title' => 'Ubah Data Buku',
             'book' => $book,
             'authors' => Author::orderBy('name', 'ASC')->get(),
+            'categories' => Category::orderBy('categories_name', 'ASC')->get(),
             'penerbits' => Penerbit::orderBy('nama_penerbit','ASC')->get(),
             'raks' => Rak::orderBy('lokasi_rak','ASC')->get(),
         ]);
@@ -120,6 +125,9 @@ class BookController extends Controller
             'issn' => 'required|numeric|min:10',
             'description' => 'required|min:20',
             'author_id' => 'required',
+            'category_id' => 'required',
+            'penerbit_id' => 'required',
+            'rak_id' => 'required',
             'cover' => 'file|image',
             'qty' => 'required|numeric',
         ]);
@@ -136,6 +144,9 @@ class BookController extends Controller
             'issn' => $request->issn,
             'description' => $request->description,
             'author_id' => $request->author_id,
+            'category_id' => $request->category_id,
+            'penerbit_id' => $request->penerbit_id,
+            'rak_id' => $request->rak_id,
             'cover' => $cover,
             'qty' => $request->qty,
         ]);
