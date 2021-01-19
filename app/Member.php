@@ -14,4 +14,10 @@ class Member extends Model
     {
         return $this->hasMany(PinjamHistori::class); 
     }
+
+    public function borrow()
+    {
+        return $this->belongsToMany(Book::class, 'peminjamans')->withTimestamps();
+    }
+
 }

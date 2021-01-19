@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Frontend\BookController@index')->name('homepage');
+Route::get('/buku/cari','Frontend\BookController@cari');
 Route::get('/book/data', 'DataController@books')->name('book.data');
 Route::get('/book/{book}', 'Frontend\BookController@show')->name('book.show');
 Route::post('/book/{book}/borrow', 'Frontend\BookController@borrow')->name('book.borrow')->middleware('auth');

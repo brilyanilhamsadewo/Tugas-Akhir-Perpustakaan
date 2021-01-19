@@ -74,6 +74,7 @@ Route::get('pinjam/modal/{PinjamHistori}', 'PinjamController@modal')->name('pinj
 
 Route::get('/report/top-user','ReportController@topUser')->name('report.top-user');
 Route::get('/report/top-book','ReportController@topBook')->name('report.top-book');
+Route::get('/report/return','ReportController@returnReport')->name('report.return');
 
 Route::get('/category/restore/{category}','CategoryController@restore')->name('category.restore');
 Route::bind('category', function($id) {

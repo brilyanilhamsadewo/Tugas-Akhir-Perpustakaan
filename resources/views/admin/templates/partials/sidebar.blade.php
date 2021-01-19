@@ -25,6 +25,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('admin.report.top-book') }}"><i class="fa fa-circle-o"></i>Buku Favorit</a></li>
+            <li><a href="{{ route('admin.report.return') }}"><i class="fa fa-circle-o"></i>Buku Favorit v2</a></li>
             <li><a href="{{ route('admin.report.top-user') }}"><i class="fa fa-circle-o"></i>Pengguna Teraktif</a></li>
           </ul>
         </li>

@@ -35,6 +35,24 @@ class BookController extends Controller
         return view('frontend.book.index',compact('user','member','book','peminjaman'));
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+            // mengambil data dari table pegawai sesuai pencarian data
+        $peminjaman = PinjamHistori::where('status_pinjam', '=', 0)->paginate(10);
+        $member = Member::all();
+        $user = User::all();
+		$book = DB::table('books')
+		->where('title','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('frontend.book.index',compact('user','member','peminjaman','book'));
+ 
+	}
+
     public function show(Book $book)
     {
         return view('frontend.book.show', [

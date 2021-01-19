@@ -21,7 +21,7 @@ class PegawaiController extends Controller
 	{
 		// menangkap data pencarian
 		$cari = $request->cari;
- 
+		
     		// mengambil data dari table pegawai sesuai pencarian data
 		$book = DB::table('books')
 		->where('title','like',"%".$cari."%")

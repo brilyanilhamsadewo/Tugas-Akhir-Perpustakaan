@@ -41,7 +41,7 @@ class Book extends Model
 
     public function borrowed()
     {
-        return $this->belongsToMany(User::class, 'borrow_history')->withTimestamps();
+        return $this->belongsToMany(Member::class, 'peminjamans')->withTimestamps();
     }
 
     public function scopeIsStillBorrow($query, $bookId)
