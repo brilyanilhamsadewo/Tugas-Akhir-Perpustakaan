@@ -75,6 +75,9 @@ Route::get('pinjam/modal/{PinjamHistori}', 'PinjamController@modal')->name('pinj
 Route::get('/report/top-user','ReportController@topUser')->name('report.top-user');
 Route::get('/report/top-book','ReportController@topBook')->name('report.top-book');
 Route::get('/report/return','ReportController@returnReport')->name('report.return');
+Route::get('/report/laporan-pdf','ReportController@generatePDF')->name('report.laporan-pdf');
+Route::get('/report/laporan-top-user','ReportController@generatePdfLaporanTopUser')->name('report.laporan-top-user');
+Route::get('/report/laporan-top-book','ReportController@generatePdfLaporanTopBook')->name('report.laporan-top-book');
 
 Route::get('/category/restore/{category}','CategoryController@restore')->name('category.restore');
 Route::bind('category', function($id) {

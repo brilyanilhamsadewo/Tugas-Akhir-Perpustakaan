@@ -4,6 +4,7 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Lpaoran Buku Terlaris</h3>
+        <a href="{{ route('admin.report.laporan-top-book') }}" class="btn btn-primary">Cetak</a>
     </div>
 
     <div class="box-body">

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -54,5 +54,14 @@ class HomeController extends Controller
         return view('requestbuku', [
             // 'books' => $books,
         ]);
+    }
+
+    public function generatePDF()
+
+    {
+        $data = ['title' => 'Welcome to belajarphp.net'];
+
+        $pdf = PDF::loadView('myPDF', $data);
+        return $pdf->download('laporan-pdf.pdf');
     }
 }

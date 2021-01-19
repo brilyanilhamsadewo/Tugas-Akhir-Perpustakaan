@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Book;
 use App\Http\Controllers\Controller;
+use App\Member;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use PDF;
+
 
 class ReportController extends Controller
 {
@@ -23,7 +26,7 @@ class ReportController extends Controller
 
     public function topUser()
     {
-        $users = User::withCount('borrow')
+        $users = Member::withCount('borrow')
             ->orderBy('borrow_count','DESC')
             ->paginate(10);
 
@@ -46,5 +49,38 @@ class ReportController extends Controller
         $books = Book::with(['author'])->whereBetween('created_at', [$start, $end])->get();
         return view('admin.report.return', compact('books'));
     }
-    
+
+    public function generatePDF()
+
+    {
+        $data = ['title' => 'Welcome to belajarphp.net'];
+
+        $pdf = PDF::loadView('admin.report.mypdf', $data);
+        return $pdf->download('laporan-pdf.pdf');
+    }
+
+    public function generatePdfLaporanTopUser()
+
+    {
+        $users = Member::withCount('borrow')
+            ->orderBy('borrow_count','DESC')
+            ->paginate(10);
+
+        $pdf = PDF::loadView('admin.report.laporan-top-user', [
+            'users' => $users,
+        ]);
+        return $pdf->download('laporan-pdf-top-user-global.pdf');
+    }
+
+    public function generatePdfLaporanTopBook()
+
+    {
+        $books = Book::withCount('borrowed')
+        ->orderBy('borrowed_count','DESC')->get();
+
+        $pdf = PDF::loadView('admin.report.laporan-top-book', [
+            'books' => $books,
+        ]);
+        return $pdf->download('laporan-pdf-top-book-global.pdf');
+    }
 }

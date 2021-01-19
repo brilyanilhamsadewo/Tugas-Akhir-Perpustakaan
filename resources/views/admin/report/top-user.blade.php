@@ -4,6 +4,8 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Laporan User Teraktif</h3>
+        {{-- <a href="{{ route('admin.report.laporan-pdf') }}" class="btn btn-primary">TEst</a> --}}
+        <a href="{{ route('admin.report.laporan-top-user') }}" class="btn btn-primary">Cetak</a>
     </div>
 
     <div class="box-body">
@@ -12,7 +14,7 @@
                 <tr>
                     <th>Nomor</th>
                     <th>Nama</th>
-                    <th>Email</th>
+                    <th>NIS / NIP</th>
                     <th>Jumlah Peminjaman</th>
                     <th>Terdaftar Pada</th>
                 </tr>
@@ -28,10 +30,11 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->nama_member }}</td>
+                        <td>{{ $user->nis_nip }}</td>
                         <td>{{ $user->borrow_count }}</td>
-                        <td>{{ $user->created_at->diffForHumans() }}</td>
+                        {{-- <td>{{ $user->created_at->diffForHumans() }}</td> --}}
+                        <td>{{\Carbon\Carbon::parse($user->created_at)->format('d/m/Y')}}</td>
                     </tr>
                 @endforeach
             </tbody>
