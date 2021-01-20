@@ -32,6 +32,11 @@ class Book extends Model
         return $this->belongsTo(Rak::class);
     }
 
+    public function pinjam_histori()
+    {
+        return $this->belongsTo(PinjamHistori::class);
+    }
+
     public function getCover()
     {
         if (substr($this->cover,0,5) == "https") {

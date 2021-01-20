@@ -175,6 +175,11 @@ Breadcrumbs::for('admin.report.top-user', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));
 });
 
+// Report Index
+Breadcrumbs::for('admin.report.peminjaman-buku', function ($trail) {
+    $trail->push('Beranda', route('admin.dashboard'));
+});
+
 // User Index
 Breadcrumbs::for('admin.user.index', function ($trail) {
     $trail->push('Beranda', route('admin.dashboard'));

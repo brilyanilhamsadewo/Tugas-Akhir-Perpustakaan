@@ -28,6 +28,7 @@
             <li><a href="{{ route('admin.report.top-book') }}"><i class="fa fa-circle-o"></i>Buku Favorit</a></li>
             {{-- <li><a href="{{ route('admin.report.return') }}"><i class="fa fa-circle-o"></i>Buku Favorit v2</a></li> --}}
             <li><a href="{{ route('admin.report.top-user') }}"><i class="fa fa-circle-o"></i>Pengguna Teraktif</a></li>
+            <li><a href="{{ route('admin.report.peminjaman-buku') }}"><i class="fa fa-circle-o"></i>Peminjaman Buku</a></li>
           </ul>
         </li>
 

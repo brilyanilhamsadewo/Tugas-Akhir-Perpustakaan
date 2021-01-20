@@ -15,6 +15,11 @@ class PinjamHistori extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
+
     public function admin()
     {
         return $this->belongsTo(User::class, 'id', 'admin_id');

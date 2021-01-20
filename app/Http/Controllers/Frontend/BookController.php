@@ -19,10 +19,10 @@ class BookController extends Controller
         // $books = Book::paginate(2);
 
         // $book = DB::table('books')->paginate(10);
-        $book = \App\Book::paginate(5);
-        $peminjaman = PinjamHistori::where('status_pinjam', '=', 0)->paginate(10);
-        $member = Member::all();
-        $user = User::all();
+        $books = \App\Book::paginate(5);
+        // $peminjaman = PinjamHistori::where('status_pinjam', '=', 0)->paginate(10);
+        // $member = Member::all();
+        // $user = User::all();
         // $book = Book::all();
 
         // return view('frontend.book.index', compact('user','member','peminjaman'),
@@ -32,7 +32,7 @@ class BookController extends Controller
         //     'buku' => $buku,
         // ]);
 
-        return view('frontend.book.index',compact('user','member','book','peminjaman'));
+        return view('frontend.book.index',compact('books'));
     }
 
     public function cari(Request $request)

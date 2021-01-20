@@ -5,6 +5,11 @@
     <div class="box-header">
         <h3 class="box-title">Lpaoran Buku Terlaris</h3>
         <a href="{{ route('admin.report.laporan-top-book') }}" class="btn btn-primary">Cetak</a>
+        <!-- Button trigger modal -->
+        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button> --}}
+  
     </div>
 
     <div class="box-body">
@@ -48,5 +53,38 @@
         {{ $books->links() }}
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+        <div class="modal-body">
+          {{-- Test --}}
+          
+            <div class="form-group">
+              <label for="tanggal_awal">Tanggal Awal</label>
+              <input type="date" class="form-control" id="tanggal_awal" placeholder="Masukkan tanggal">
+            </div>
+            <div class="form-group">
+              <label for="tanggal_akhir">Tanggal Akhir</label>
+              <input type="date" class="form-control" id="tanggal_akhir" placeholder="Masukkan tanggal">
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="" onclick="this.href='/admin/report/laporan-top-book-pertanggal/'+document.getElementById('tanggal_awal').value + '/' + document.getElementById('tanggal_akhir').value" class="btn btn-primary">Cetak</a>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 @endsection

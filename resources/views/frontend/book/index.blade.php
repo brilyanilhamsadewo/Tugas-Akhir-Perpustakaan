@@ -23,7 +23,7 @@
         <th>Jumlah Tersedia</th>
         {{-- <th>Description</th> --}}
     </tr>
-    @foreach($book as $b)
+    @foreach($books as $b)
     <tr>
         <td>{{ $b->title }}</td>
         <td>{{ $b->issn }}</td>
@@ -37,58 +37,12 @@
 </table>
 
 <br/>
-Halaman : {{ $book->currentPage() }} <br/>
-Jumlah Data : {{ $book->total() }} <br/>
-Data Per Halaman : {{ $book->perPage() }} <br/>
+Halaman : {{ $books->currentPage() }} <br/>
+Jumlah Data : {{ $books->total() }} <br/>
+Data Per Halaman : {{ $books->perPage() }} <br/>
 
 
-{{ $book->links() }}
+{{ $books->links() }}
 
 
-{{-- <table id="dataTable" class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Nomor</th>
-            <th>Judul</th>
-            <th>Penerbit</th>
-            <th>Rak</th>
-            <th>ISSN</th>
-            <th>Deskripsi</th>
-            <th>Jumlah Buku</th>
-            <th>Penulis</th> --}}
-            {{-- <th>Sampul</th> --}}
-            {{-- <th>Aksi</th> --}}
-        {{-- </tr>
-    </thead>
-</table> --}}
-
-<script>
-    // $(function () {
-        // $('#dataTable').DataTable({
-            // processing: true,
-            // serverSide: true,
-            // ajax: '{{ route('admin.book.data') }}',
-            // columns: [
-            //     { data: 'DT_RowIndex', orderable: false, searchable : false},
-            //     { data: 'title'},
-            //     { data: 'penerbit'},
-            //     { data: 'rak'},
-            //     { data: 'issn'},
-            //     { data: 'description'},
-            //     { data: 'qty'},
-            //     { data: 'author'},
-            //     { data: 'cover'},
-            //     { data: 'action'},
-            // ]
-        // });
-    // });
-</script>
-{{-- <div class="row"> --}}
-    
-    {{-- @foreach ($books as $book)
-        @include('frontend.templates.components.card-book', ['book' => $book])
-    @endforeach --}}
-{{-- </div> --}}
-{{-- Pagination --}}
-{{-- {{ $books->links('vendor.pagination.materialize') }} --}}
 @endsection

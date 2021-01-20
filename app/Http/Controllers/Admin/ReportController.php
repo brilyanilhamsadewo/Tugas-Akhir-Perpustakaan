@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Author;
 use App\Book;
 use App\Http\Controllers\Controller;
 use App\Member;
+use App\PinjamHistori;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 
@@ -32,6 +35,18 @@ class ReportController extends Controller
 
         return view('admin.report.top-user',[
             'users' => $users,
+        ]);
+    }
+
+    public function peminjamanBuku()
+    {
+        $peminjaman = PinjamHistori::all();
+        $anggota = Member::all();
+        $petugas = User::all();
+        $buku = Book::all();
+
+        return view('admin.report.peminjaman-buku', compact('anggota','petugas','buku','peminjaman'),[
+            'title' => 'Data Peminjaman Buku',
         ]);
     }
 
@@ -83,4 +98,48 @@ class ReportController extends Controller
         ]);
         return $pdf->download('laporan-pdf-top-book-global.pdf');
     }
+
+    public function generatePdfLaporanPeminjamanBuku()
+
+    {
+        $peminjaman = PinjamHistori::all();
+        $anggota = Member::all();
+        $petugas = User::all();
+        $buku = Book::all();
+
+        $pdf = PDF::loadView('admin.report.laporan-peminjaman-buku', compact('anggota','petugas','buku','peminjaman')
+        );
+        return $pdf->download('laporan-pdf-peminjaman-buku-global.pdf');
+    }
+
+    public function generatePdfLaporanTopBookPertanggal($tanggal_awal,$tanggal_akhir)
+    {
+        // dd("Tanggal awal :".$tanggal_awal."Tanggal akhir".$tanggal_akhir);
+        $books = Book::withCount('borrowed')->with('author')->with('pinjam_histori')->whereBetween('tanggal_pinjam',[$tanggal_awal,$tanggal_akhir])
+        ->orderBy('borrowed_count','DESC')->get();
+
+        $pdf = PDF::loadView('admin.report.laporan-top-book-pertanggal', [
+            'books' => $books,
+        ]);
+        return $pdf->download('laporan-pdf-top-book-pertanggal.pdf');
+    }
+
+    public function generatePdfLaporanPeminjamanBukuPertanggal($tanggal_awal,$tanggal_akhir)
+    {
+        // dd("Tanggal awal :".$tanggal_awal."Tanggal akhir".$tanggal_akhir);
+
+        $peminjaman = PinjamHistori::with('book','member','author')->whereBetween('tanggal_pinjam',[$tanggal_awal,$tanggal_akhir])->orderBy('tanggal_pinjam','ASC')->get();
+        // $anggota = Member::all();
+        // $petugas = User::all();
+        // $buku = Book::all();
+
+        // $peminjaman = Book::withCount('borrowed')->with('author')->with('pinjam_histori')->whereBetween('tanggal_pinjam',[$tanggal_awal,$tanggal_akhir])
+        // ->orderBy('borrowed_count','DESC')->get();
+
+        $pdf = PDF::loadView('admin.report.laporan-peminjaman-buku-pertanggal', [
+            'peminjaman' => $peminjaman,
+        ]);
+        return $pdf->download('laporan-pdf-peminjaman-buku-pertanggal.pdf');
+    }
+
 }
