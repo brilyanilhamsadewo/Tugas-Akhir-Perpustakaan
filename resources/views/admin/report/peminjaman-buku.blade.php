@@ -22,7 +22,7 @@
         <table id="dataTable" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>No</th>
+                <th>Id Peminjaman</th>
                 <th>Nama Peminjam</th>
                 <th>NIS / NIP</th>
                 <th>Judul Buku</th>
@@ -74,7 +74,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Cetak Laporan</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

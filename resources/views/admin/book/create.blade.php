@@ -41,7 +41,7 @@
                             <option value="{{ $author->id }}">{{ $author->name }}</option>
                         @endforeach
                     </select>
-                    @error('title')
+                    @error('author_id')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>
@@ -76,7 +76,7 @@
                     <select name="rak_id" id="" class="form-control select2">
                         <option value="">Pilih rak</option>
                         @foreach ($raks as $rak)
-                            <option value="{{ $rak->id }}">{{ $rak->lokasi_rak }}</option>
+                            <option value="{{ $rak->id }}">{{ $rak->nama_rak." | ".$rak->lokasi_rak }}</option>
                         @endforeach
                     </select>
                     @error('rak_id')

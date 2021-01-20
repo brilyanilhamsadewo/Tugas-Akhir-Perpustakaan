@@ -27,7 +27,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group @error('title') has-error @enderror">
+                <div class="form-group @error('description') has-error @enderror">
                     <label for="">Deskripsi</label>
                     <textarea name="description" id="" rows="3" class="form-control" placeholder="Masukkan deskripsi buku">{{ $book->description ?? old('description') }}</textarea>
                     @error('description')
@@ -49,7 +49,7 @@
                             </option>
                         @endforeach
                     </select>
-                    @error('title')
+                    @error('author_id')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>

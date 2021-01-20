@@ -17,6 +17,10 @@
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
+                    @error('user_id')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
 
                 <div class="form-group @error('book_id') has-error @enderror">
                     <label for="">Judul Buku</label>
@@ -33,7 +37,7 @@
                 <div class="form-group @error('must_return') has-error @enderror">
                     <label for="">Tanggal Harus Kembali</label>
                     <input type="date" name="must_return" class="form-control" placeholder="Masukkan Tanggal Harus Kembali" value="{{ old('must_return') }}">
-                    @error('name')
+                    @error('must_return')
                         <span class="help-block">{{ $message }}</span>
                     @enderror
                 </div>

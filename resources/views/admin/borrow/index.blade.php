@@ -13,7 +13,7 @@
         <table id="dataTable" class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Judul Buku</th>
                     <th>Tanggal Pinjam</th>

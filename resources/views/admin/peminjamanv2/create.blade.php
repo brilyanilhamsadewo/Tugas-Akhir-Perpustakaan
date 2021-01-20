@@ -18,6 +18,10 @@
                             <option value="{{ $member->id }}">{{ $member->nama_member." | ".$member->nis_nip }}</option>
                         @endforeach
                     </select>
+                    @error('member_id')
+                        <span class="help-block">{{ $message }}</span>
+                    @enderror
+                </div>
 
                 <div class="form-group @error('book_id') has-error @enderror">
                     <label for="">Judul Buku</label>

@@ -10,7 +10,7 @@
             <form action="{{ route('admin.category.store') }}" method="POST">
                 @csrf
 
-                <div class="form-group @error('name') has-error @enderror">
+                <div class="form-group @error('categories_name') has-error @enderror">
                     <label for="">Nama Kategori</label>
                     <input type="text" name="categories_name" class="form-control" placeholder="Masukkan nama kategori" value="{{ old('categories_name') }}">
                     @error('categories_name')

@@ -7,14 +7,14 @@
         <li><a href="{{ route('admin.author.index') }}"><i class="fa fa-user"></i> <span>Penulis</span></a></li>
         <li><a href="{{ route('admin.category.index') }}"><i class="fa fa-book"></i> <span>Kategori</span></a></li>
         <li><a href="{{ route('admin.penerbit.index') }}"><i class="fa fa-book"></i> <span>Penerbit</span></a></li>
-        <li><a href="{{ route('admin.rak.index') }}"><i class="fa fa-book"></i> <span>Rak</span></a></li>
+        <li><a href="{{ route('admin.rak.index') }}"><i class="fa fa-archive"></i> <span>Rak</span></a></li>
         <li><a href="{{ route('admin.book.index') }}"><i class="fa fa-book"></i> <span>Buku</span></a></li>
         {{-- <li><a href="{{ route('admin.book2.index') }}"><i class="fa fa-book"></i> <span>Buku2</span></a></li> --}}
         {{-- <li><a href="{{ route('admin.borrowing.index') }}"><i class="fa fa-book"></i> <span>Pinjam Buku</span></a></li> --}}
         {{-- <li><a href="{{ route('admin.borrow.index') }}"><i class="fa fa-book"></i> <span>Buku Sedang Dipinjam</span></a></li> --}}
         {{-- <li><a href="{{ route('admin.pinjam.index') }}"><i class="fa fa-book"></i> <span>Peminjaman V2</span></a></li> --}}
-        <li><a href="{{ route('admin.peminjaman.index') }}"><i class="fa fa-book"></i> <span>Peminjaman V3</span></a></li>
-        <li><a href="{{ route('admin.pengembalianv2.index') }}"><i class="fa fa-book"></i> <span>Pengembalian V3</span></a></li>
+        <li><a href="{{ route('admin.peminjaman.index') }}"><i class="fa fa-handshake-o"></i> <span>Peminjaman</span></a></li>
+        <li><a href="{{ route('admin.pengembalianv2.index') }}"><i class="fa fa-handshake-o"></i> <span>Pengembalian</span></a></li>
         {{-- <li><a href="{{ route('admin.pengembalian.index') }}"><i class="fa fa-book"></i> <span>Pengembalian V2</span></a></li> --}}
         <li class="treeview">
           <a href="#">
@@ -47,7 +47,7 @@
           </ul>
         </li>
 
-        <li><a href="{{ route('admin.member.index') }}"><i class="fa fa-user"></i> <span>Anggota </span></a></li>
+        <li><a href="{{ route('admin.member.index') }}"><i class="fa fa-users"></i> <span>Anggota </span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -10,7 +10,7 @@
             <form action="{{ route('admin.penerbit.store') }}" method="POST">
                 @csrf
 
-                <div class="form-group @error('name') has-error @enderror">
+                <div class="form-group @error('nama_penerbit') has-error @enderror">
                     <label for="">Nama Penerbit</label>
                     <input type="text" name="nama_penerbit" class="form-control" placeholder="Masukkan nama penerbit" value="{{ old('nama_penerbit') }}">
                     @error('nama_penerbit')

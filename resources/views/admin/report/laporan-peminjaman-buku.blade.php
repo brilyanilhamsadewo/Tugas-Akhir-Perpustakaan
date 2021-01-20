@@ -20,7 +20,7 @@
                     <th>ISSN</th>
                     {{-- <th>Nama Petugas</th> --}}
                     <th>Tanggal Pinjam</th>
-                    <th>Tanggal Kembali</th>
+                    {{-- <th>Tanggal Kembali</th> --}}
                 </tr>
             </thead>
     
@@ -42,7 +42,7 @@
                         <td>{{$p->book->issn}}</td>
                         {{-- <td>{{$p->user->name}}</td> --}}
                         <td>{{\Carbon\Carbon::parse($p->tanggal_pinjam)->format('d/m/Y')}}</td>
-                        <td>{{\Carbon\Carbon::parse($p->tanggal_kembali)->format('d/m/Y')}}</td>
+                        {{-- <td>{{\Carbon\Carbon::parse($p->tanggal_kembali)->format('d/m/Y')}}</td> --}}
                         {{-- <td>
                         <!-- fontawesome  -->
                             <!-- <a href="{{url('/peminjaman/peminjaman/edit/'.$p->ID_PEMINJAMAN)}}" class="badge badge-success"><i class="fas fa-edit"></i> Edit Peminjaman</a> -->

@@ -14,7 +14,7 @@
             <table id="" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>No</th>
                         <th>Nama Rak</th>
                         <th>Lokasi Rak</th>
                     </tr>
